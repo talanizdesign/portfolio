@@ -1,0 +1,18 @@
+# Source materials — kept locally, not published to the site
+Awa.docx
+Awa video app/
+Design System Images/
+Design System Impact images/
+Design ops images/
+IMS impact images/
+New design images/
+felt images/
+Emotion-Driven Innovation book.png
+
+# Local tooling / editor config — not part of the site
+.claude/
+book.html
+
+# OS / editor cruft
+.DS_Store
+**/.DS_Store
