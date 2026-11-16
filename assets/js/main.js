@@ -125,7 +125,7 @@ function startHero(animate) {
 
   // Activate the project from the URL hash, or default to the first tab so the
   // page is never blank when opened without a hash.
-  var valid = ['ds', 'ux', 'ops', 'awa'];
+  var valid = ['ds', 'ux', 'ops', 'shop', 'awa'];
   function fromHash() {
     var hash = (location.hash || '').replace('#', '');
     activate(valid.indexOf(hash) !== -1 ? hash : tabEls[0].dataset.tab);
@@ -139,6 +139,15 @@ function startHero(animate) {
   document.querySelectorAll('.gallery').forEach(function (root) {
     var slides = root.querySelectorAll('.gallery__slide');
     if (!slides.length) return;
+
+    // Preload every slide image up front so changing slides never blinks on the
+    // first pass (lazy images would otherwise only load when first shown).
+    slides.forEach(function (s) {
+      var im = s.querySelector('img');
+      if (!im) return;
+      im.loading = 'eager';
+      if (!im.complete) { var pre = new Image(); pre.src = im.currentSrc || im.src; }
+    });
 
     var prev = root.querySelector('.gallery__nav--prev');
     var next = root.querySelector('.gallery__nav--next');
@@ -176,4 +185,65 @@ function startHero(animate) {
       else if (e.key === 'ArrowRight') go(idx + 1);
     });
   });
+})();
+
+/* ---- Self-shopping (Datalogic) Impact: three code-built, interactive slides.
+   Each slide has a sensible default so it reads before anyone interacts, and
+   interacting inside a slide never changes the carousel slide. ---- */
+(function selfShoppingImpact() {
+  var root = document.getElementById('shopImpactGallery');
+  if (!root) return;
+
+  // Slide 1 — two inputs feed one output; the output lights up once both are on.
+  var map = root.querySelector('.ssi-map');
+  if (map) {
+    var ios = map.querySelectorAll('.ssi-io');
+    var syncMap = function () {
+      var all = true;
+      ios.forEach(function (b) { if (!b.classList.contains('is-on')) all = false; });
+      map.classList.toggle('is-complete', all);
+    };
+    ios.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var on = !b.classList.contains('is-on');
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        syncMap();
+      });
+    });
+  }
+
+  // Slide 2 — selecting a step fills the track up to it and shows its line.
+  var track = root.querySelector('.ssi-track');
+  if (track) {
+    var steps = track.querySelectorAll('.ssi-step');
+    var fill = track.querySelector('.ssi-track__fill');
+    var lineEl = track.querySelector('.ssi-track__line');
+    steps.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        steps.forEach(function (s, k) {
+          s.setAttribute('aria-pressed', k === i ? 'true' : 'false');
+          s.classList.toggle('is-done', k <= i);
+        });
+        if (fill) fill.style.width = ((i + 1) / steps.length * 100) + '%';
+        if (lineEl) lineEl.textContent = b.getAttribute('data-line');
+      });
+    });
+  }
+
+  // Slide 3 — selecting a stop updates what the phone frame shows.
+  var trip = root.querySelector('.ssi-trip');
+  if (trip) {
+    var stops = trip.querySelectorAll('.ssi-stop');
+    var pt = trip.querySelector('.ssi-phone__t');
+    var pd = trip.querySelector('.ssi-phone__d');
+    stops.forEach(function (b) {
+      b.addEventListener('click', function () {
+        stops.forEach(function (s) { s.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        if (pt) pt.textContent = b.getAttribute('data-title');
+        if (pd) pd.textContent = b.getAttribute('data-line');
+      });
+    });
+  }
 })();

@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projects — Teresa Alaniz</title>
 <meta name="description" content="Selected work in design systems, UX, design operations, and product concepts." />
-<link rel="stylesheet" href="assets/css/style.css?v=73" />
+<link rel="stylesheet" href="assets/css/style.css?v=79" />
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav-inner">
-    <a class="brand" href="index.html">Teresa Alaniz</a>
+    <a class="brand" href="index.html"><span class="brand__full">Teresa Alaniz</span><span class="brand__short" aria-hidden="true">TA</span></a>
     <nav class="site-nav" aria-label="Primary">
       <a href="projects.html" class="is-active">Projects</a>
       <a href="awa.html">Awa</a>
@@ -27,6 +27,7 @@
     <button class="tab" data-tab="ds" type="button">Design System</button>
     <button class="tab" data-tab="ux" type="button">UX strategy</button>
     <button class="tab" data-tab="ops" type="button">Design Ops</button>
+    <button class="tab" data-tab="shop" type="button">Self-shopping app</button>
     <!-- Awa project temporarily hidden — to restore, uncomment this tab button and the #panel-awa section below.
     <button class="tab" data-tab="awa" type="button">Awa</button>
     -->
@@ -55,15 +56,19 @@
 
             <div class="gallery__track">
               <figure class="gallery__slide is-active">
-                <img src="assets/img/design-system-impact/01-lower-cost.png?v=3" alt="Lower cost of building UI" loading="eager" />
-                <figcaption class="gallery__caption">Lower cost of building UI</figcaption>
-              </figure>
-              <figure class="gallery__slide">
-                <img src="assets/img/design-system-impact/02-features-sooner.png?v=3" alt="Features ship sooner" loading="lazy" />
+                <img src="assets/img/design-system-impact/01-features-sooner.png?v=9" alt="Features ship sooner" loading="eager" />
                 <figcaption class="gallery__caption">Features ship sooner</figcaption>
               </figure>
               <figure class="gallery__slide">
-                <img src="assets/img/design-system-impact/03-scales.png?v=3" alt="Scales without starting over" loading="lazy" />
+                <img src="assets/img/design-system-impact/02-lower-cost.png?v=9" alt="Fewer fixes, lower cost" loading="eager" />
+                <figcaption class="gallery__caption">Fewer fixes, lower cost</figcaption>
+              </figure>
+              <figure class="gallery__slide">
+                <img src="assets/img/design-system-impact/03-used-daily.png?v=9" alt="Used every day, across teams" loading="eager" />
+                <figcaption class="gallery__caption">Used every day, across teams</figcaption>
+              </figure>
+              <figure class="gallery__slide">
+                <img src="assets/img/design-system-impact/04-scales.png?v=9" alt="Scales without starting over" loading="eager" />
                 <figcaption class="gallery__caption">Scales without starting over</figcaption>
               </figure>
             </div>
@@ -73,7 +78,7 @@
 
           <div class="gallery__footer">
             <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
-            <span class="gallery__counter">1 / 3</span>
+            <span class="gallery__counter">1 / 4</span>
           </div>
         </div>
       </div>
@@ -278,16 +283,20 @@
 
           <div class="gallery__track">
             <figure class="gallery__slide is-active">
-              <img src="assets/img/design-ops/01-predictable-delivery.png?v=8" alt="Making design delivery predictable" loading="eager" />
+              <img src="assets/img/design-ops/01-predictable-delivery.png?v=9" alt="Making design delivery predictable" loading="eager" />
               <figcaption class="gallery__caption">Making design delivery predictable</figcaption>
             </figure>
             <figure class="gallery__slide">
-              <img src="assets/img/design-ops/02-preventing-sprawl.png?v=8" alt="Preventing component sprawl" loading="lazy" />
+              <img src="assets/img/design-ops/02-contribution-model.png?v=9" alt="One centralised contribution model for the whole product family" loading="eager" />
+              <figcaption class="gallery__caption">One centralised contribution model for the whole product family</figcaption>
+            </figure>
+            <figure class="gallery__slide">
+              <img src="assets/img/design-ops/03-preventing-sprawl.png?v=9" alt="Preventing component sprawl" loading="eager" />
               <figcaption class="gallery__caption">Preventing component sprawl</figcaption>
             </figure>
             <figure class="gallery__slide">
-              <img src="assets/img/design-ops/03-protecting-knowledge.png?v=8" alt="Protecting product knowledge through team changes" loading="lazy" />
-              <figcaption class="gallery__caption">Protecting product knowledge through team changes</figcaption>
+              <img src="assets/img/design-ops/04-team-changes.png?v=9" alt="Built to hold up through team changes" loading="eager" />
+              <figcaption class="gallery__caption">Built to hold up through team changes</figcaption>
             </figure>
           </div>
 
@@ -296,7 +305,7 @@
 
           <div class="gallery__footer">
             <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
-            <span class="gallery__counter">1 / 3</span>
+            <span class="gallery__counter">1 / 4</span>
           </div>
         </div>
       </div>
@@ -330,6 +339,178 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ============ SELF-SHOPPING (DATALOGIC) ============ -->
+  <section class="panel" id="panel-shop">
+    <h1 class="case__title">Scan, pay and go: a self-shopping app for supermarkets</h1>
+
+    <!-- ===== Hero: In short + Impact (built in code) ===== -->
+    <div class="case-hero">
+      <div class="case-hero__text">
+        <h2 class="h-sec">In short</h2>
+        <div class="prose">
+          <p><strong>The Context</strong><br />Datalogic wanted to bring self-shopping to shoppers’ own smartphones: scan products while shopping, see the running total and offers, and skip the checkout queue. It was a new product idea, with one month to design it and no user data to start from.</p>
+          <p><strong>The Strategy</strong><br />With no user data, we went to the store. The team used competitors’ self-shopping solutions in supermarkets and went through the whole shopping trip, then combined what we saw with Datalogic’s technical features into one product intelligence base. Product managers and developers were involved from the start.</p>
+          <p><strong>The Impact</strong><br />In four weeks we delivered the information architecture, pixel-perfect screens, an interactive prototype and a developer handoff that was feasible to build and met business needs. The app shipped and is now part of Datalogic’s retail product portfolio.</p>
+        </div>
+      </div>
+
+      <div class="case-hero__media">
+        <h2 class="h-sec">Impact</h2>
+        <div class="gallery" id="shopImpactGallery">
+          <div class="gallery__stage">
+            <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous slide">‹</button>
+
+            <div class="gallery__track">
+              <!-- Slide 1 — from no user data to product insights -->
+              <figure class="gallery__slide is-active">
+                <div class="ssi ssi-map is-complete">
+                  <div class="ssi-map__inputs">
+                    <button class="ssi-io is-on" type="button" aria-pressed="true">
+                      <span class="ssi-io__t">Field research in supermarkets</span>
+                      <span class="ssi-io__d">Competitors’ self-shopping solutions, used as real shoppers, and the whole shopping trip from entering the store to leaving.</span>
+                    </button>
+                    <button class="ssi-io is-on" type="button" aria-pressed="true">
+                      <span class="ssi-io__t">Datalogic’s technical features</span>
+                      <span class="ssi-io__d">What the product could do: scanning, running totals, offers, payment and loyalty.</span>
+                    </button>
+                  </div>
+                  <div class="ssi-map__links" aria-hidden="true"><span></span><span></span></div>
+                  <div class="ssi-map__out">
+                    <span class="ssi-out__t">Product intelligence</span>
+                    <span class="ssi-out__d">What shoppers need at each step of the trip, and which feature answers it.</span>
+                  </div>
+                </div>
+                <figcaption class="gallery__caption">From no user data to product insights</figcaption>
+              </figure>
+
+              <!-- Slide 2 — ready to build in four weeks -->
+              <figure class="gallery__slide">
+                <div class="ssi ssi-track">
+                  <span class="ssi-track__scale">About 1 month</span>
+                  <div class="ssi-track__rail">
+                    <div class="ssi-track__steps" role="group" aria-label="Project steps">
+                      <button class="ssi-step is-done" type="button" aria-pressed="false" data-line="Field research in supermarkets.">Discovery</button>
+                      <button class="ssi-step is-done" type="button" aria-pressed="false" data-line="Research and technical features combined.">Product intelligence</button>
+                      <button class="ssi-step is-done" type="button" aria-pressed="false" data-line="The app structured around the shopping trip.">Information architecture</button>
+                      <button class="ssi-step is-done" type="button" aria-pressed="false" data-line="Pixel-perfect screens and an interactive prototype.">UI design and prototype</button>
+                      <button class="ssi-step is-done" type="button" aria-pressed="true" data-line="Checked with product managers and developers: feasible to build and meeting business needs.">Handoff</button>
+                    </div>
+                    <div class="ssi-track__bar"><span class="ssi-track__fill" style="width:100%"></span></div>
+                  </div>
+                  <p class="ssi-track__line" aria-live="polite">Checked with product managers and developers: feasible to build and meeting business needs.</p>
+                  <p class="ssi-track__marker">Product managers and developers involved throughout</p>
+                </div>
+                <figcaption class="gallery__caption">Ready to build in four weeks</figcaption>
+              </figure>
+
+              <!-- Slide 3 — shipped as part of Datalogic’s portfolio -->
+              <figure class="gallery__slide">
+                <div class="ssi ssi-trip">
+                  <div class="ssi-trip__stops" role="group" aria-label="The shopping trip">
+                    <button class="ssi-stop" type="button" aria-pressed="false" data-title="Shopping list" data-line="Plan the trip before entering the store.">Before the store</button>
+                    <button class="ssi-stop" type="button" aria-pressed="true" data-title="Scan and cart" data-line="Scan products as you shop, with a live item count and running total.">While shopping</button>
+                    <button class="ssi-stop" type="button" aria-pressed="false" data-title="Discounts applied" data-line="Prices shown with all discounts and coupons applied.">Checking prices</button>
+                    <button class="ssi-stop" type="button" aria-pressed="false" data-title="Checkout in the app" data-line="Pay with several payment methods, without queuing.">Paying</button>
+                    <button class="ssi-stop" type="button" aria-pressed="false" data-title="Rewards" data-line="Loyalty points and rewards in the same app.">After paying</button>
+                  </div>
+                  <div class="ssi-phone">
+                    <div class="ssi-phone__screen" aria-live="polite">
+                      <span class="ssi-phone__t">Scan and cart</span>
+                      <span class="ssi-phone__d">Scan products as you shop, with a live item count and running total.</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="ssi-ship">Shipped. The app is now part of Datalogic’s retail product portfolio.</p>
+                <figcaption class="gallery__caption">Shipped as part of Datalogic’s portfolio</figcaption>
+              </figure>
+            </div>
+
+            <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next slide">›</button>
+          </div>
+
+          <div class="gallery__footer">
+            <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
+            <span class="gallery__counter">1 / 3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role">
+      <h2 class="h-sec">My role</h2>
+      <div class="did-grid did-grid--2">
+        <article class="did-card">
+          <span class="did-card__num">01</span>
+          <h3 class="did-card__title">Team leadership</h3>
+          <p>I led a team of three, a design manager and two product designers, and set up how we would work within one month.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">02</span>
+          <h3 class="did-card__title">Field research</h3>
+          <p>I directed the team’s research in supermarkets, so the app was based on what shoppers actually do.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">03</span>
+          <h3 class="did-card__title">Product and engineering partnership</h3>
+          <p>I brought Datalogic’s product managers and developers in early. They reviewed the work during the month, not only at the end.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">04</span>
+          <h3 class="did-card__title">Ready-to-build handoff</h3>
+          <p>I made sure the handoff matched what developers could build and what the business needed.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="case-grid">
+      <div class="col-3 card card--interactive">
+        <h2 class="h-sec">My approach</h2>
+        <div class="steps">
+          <div class="steps__row"><span class="steps__num">01</span><span class="steps__label">Discovery</span><span class="steps__desc">The team used competitors’ self-shopping solutions and went through the whole shopping trip in supermarkets, noting where it slowed down or got confusing.</span></div>
+          <div class="steps__row"><span class="steps__num">02</span><span class="steps__label">Product intelligence</span><span class="steps__desc">We combined what we saw with Datalogic’s technical features: what shoppers need at each step of the trip, and which feature answers it.</span></div>
+          <div class="steps__row"><span class="steps__num">03</span><span class="steps__label">Information architecture</span><span class="steps__desc">We structured the app around the shopping trip: shopping list, scan and cart, product detail, checkout and rewards.</span></div>
+          <div class="steps__row"><span class="steps__num">04</span><span class="steps__label">UI design and prototype</span><span class="steps__desc">We designed pixel-perfect screens and an interactive prototype of the main shopper flows.</span></div>
+          <div class="steps__row"><span class="steps__num">05</span><span class="steps__label">Handoff</span><span class="steps__desc">Product managers and developers checked the work along the way, so the handoff was feasible to build and met business needs.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== A look at the app ===== -->
+    <div class="gallery" id="shopGallery">
+      <h2 class="process__title">A look at the app</h2>
+      <div class="gallery__stage">
+        <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous image">‹</button>
+
+        <div class="gallery__track">
+          <figure class="gallery__slide is-active">
+            <img src="assets/img/selfshopping/selfshopping-cart.png?v=1" alt="Cart screen with scanned products, item count and running total" loading="lazy" />
+            <figcaption class="gallery__caption">Scan and cart: live total with discounts applied</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/selfshopping/selfshopping-product.png?v=1" alt="Product detail screen with a coupon to add" loading="lazy" />
+            <figcaption class="gallery__caption">Product detail and coupons</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/selfshopping/selfshopping-checkout.png?v=1" alt="Checkout screen with payment methods" loading="lazy" />
+            <figcaption class="gallery__caption">Checkout without queuing</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/selfshopping/selfshopping-rewards.png?v=1" alt="Loyalty rewards screen" loading="lazy" />
+            <figcaption class="gallery__caption">Loyalty rewards</figcaption>
+          </figure>
+        </div>
+
+        <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next image">›</button>
+      </div>
+
+      <div class="gallery__footer">
+        <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
+        <span class="gallery__counter">1 / 4</span>
+      </div>
+    </div>
+
   </section>
 
   <!-- ============ AWA (temporarily hidden — to restore, delete this line and the "END AWA hidden" line below, then uncomment the Awa tab button in the .tabs nav above) ============
@@ -388,6 +569,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=14"></script>
+<script src="assets/js/main.js?v=16"></script>
 </body>
 </html>

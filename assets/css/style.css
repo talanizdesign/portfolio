@@ -21,7 +21,6 @@
   --pink: #0b0b0c;             /* solid fill — active tab / gallery nav hover (pairs with white text) */
   --pink-hover: #f2f2f2;       /* light grey — header button hover */
   --pink-bullet: #0b0b0c;      /* bullet squares / active dot (black) */
-  --pink-bar: #0b0b0c;         /* phase card top bar (black) */
   --pink-text: #0b0b0c;        /* inline accent text (black, inherits) */
 
   --font-display: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
@@ -90,6 +89,7 @@ em { font-style: italic; }
 }
 .brand:hover:not(.is-active) { background: var(--pink-hover); color: var(--ink); }
 .brand.is-active { background: var(--ink); color: #fff; }
+.brand__short { display: none; }
 
 .site-nav { display: flex; align-items: center; gap: 1.75rem; }
 .site-nav a {
@@ -113,7 +113,7 @@ em { font-style: italic; }
   justify-content: center;
   gap: 2rem;
   font-size: 0.9rem;
-  color: var(--ink-faint);
+  color: var(--ink-3);
 }
 .site-footer__inner a { display: inline-flex; align-items: center; gap: 0.3em; transition: color 0.2s ease; }
 .site-footer__inner a:hover { color: var(--ink); }
@@ -295,14 +295,25 @@ em { font-style: italic; }
   transition: color 0.2s ease;
 }
 .stat__tag {
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
 }
 .stat--awa .arrow { font-size: 0.8em; color: var(--ink-faint); }
 .stat--awa:hover .stat__headline { color: var(--ink-3); }
+/* A stat that links out (e.g. Design system → the project), same affordance as Awa but normal case */
+.stat--link { text-decoration: none; color: inherit; }
+.stat--link .stat__headline {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.5rem;
+  transition: color 0.2s ease;
+}
+.stat--link .arrow { font-size: 0.8em; color: var(--ink-faint); }
+.stat--link:hover .stat__headline { color: var(--ink-3); }
 /* Home teaser → Awa */
 .home-awa {
   display: block;
@@ -317,7 +328,7 @@ em { font-style: italic; }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   margin-bottom: 0.75rem;
 }
 .home-awa__row {
@@ -364,7 +375,7 @@ em { font-style: italic; }
 }
 .tab {
   font-size: 1.05rem;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   padding: 5px 2px;
   border-radius: 0;
   border-bottom: 2px solid transparent;
@@ -533,7 +544,7 @@ em { font-style: italic; }
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
 }
 
 /* Timeline (Results) */
@@ -546,14 +557,14 @@ em { font-style: italic; }
   align-items: start;
 }
 .timeline__row + .timeline__row { border-top: 1px solid var(--line-soft); }
-.timeline__year { font-size: 1.35rem; color: var(--ink-faint); font-family: var(--font-display); }
+.timeline__year { font-size: 1.35rem; color: var(--ink-3); font-family: var(--font-display); }
 .timeline__label { font-weight: 600; color: var(--ink); }
 .timeline__desc { color: var(--ink-2); }
 
 /* Numbered approach list */
 .steps { display: flex; flex-direction: column; gap: 1.5rem; }
 .steps__row { display: grid; grid-template-columns: 60px 150px 1fr; gap: 1rem; align-items: start; }
-.steps__num { font-size: 1.35rem; color: var(--ink-faint); font-family: var(--font-display); }
+.steps__num { font-size: 1.35rem; color: var(--ink-3); font-family: var(--font-display); }
 .steps__label { font-weight: 600; }
 .steps__desc { color: var(--ink-2); }
 
@@ -622,7 +633,7 @@ em { font-style: italic; }
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
 }
 .did-card__title {
   font-family: var(--font-display);
@@ -650,7 +661,6 @@ em { font-style: italic; }
 }
 .phase {
   border: 1px solid var(--line);
-  border-top: 3px solid var(--pink-bar);
   border-radius: 18px;
   padding: 1.5rem 1.5rem 1.75rem;
 }
@@ -836,7 +846,8 @@ em { font-style: italic; }
 #dsImpactGallery .gallery__stage,
 #dsGallery .gallery__stage,
 #opsGallery .gallery__stage,
-#imsImpactGallery .gallery__stage {
+#imsImpactGallery .gallery__stage,
+#shopImpactGallery .gallery__stage {
   background: transparent;
   border: 0;
   /* side gutters so the nav buttons sit beside the image, not over it */
@@ -845,11 +856,13 @@ em { font-style: italic; }
 #dsImpactGallery .gallery__nav--prev,
 #dsGallery .gallery__nav--prev,
 #opsGallery .gallery__nav--prev,
-#imsImpactGallery .gallery__nav--prev { left: 0; }
+#imsImpactGallery .gallery__nav--prev,
+#shopImpactGallery .gallery__nav--prev { left: 0; }
 #dsImpactGallery .gallery__nav--next,
 #dsGallery .gallery__nav--next,
 #opsGallery .gallery__nav--next,
-#imsImpactGallery .gallery__nav--next { right: 0; }
+#imsImpactGallery .gallery__nav--next,
+#shopImpactGallery .gallery__nav--next { right: 0; }
 .gallery__nav {
   position: absolute;
   top: 50%;
@@ -893,7 +906,7 @@ em { font-style: italic; }
 .gallery__dot.is-active { background: var(--pink-bullet); transform: scale(1.15); }
 .gallery__counter {
   font-size: 0.8rem;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
 }
@@ -921,5 +934,92 @@ em { font-style: italic; }
   .home__block { text-align: left; }
   .home__stats { grid-template-columns: 1fr; gap: 1.25rem; }
   .gallery__slide img { max-height: 68vh; }
-  .gallery__nav { width: 38px; height: 38px; font-size: 1.3rem; }
+  .gallery__nav { width: 32px; height: 32px; font-size: 1.15rem; }
+
+  /* Short brand mark on phones — keeps the full name for screen readers */
+  .brand__full {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0);
+    white-space: nowrap; border: 0;
+  }
+  .brand__short { display: inline; }
+
+  /* Give the project impact slides nearly the full width — the nav arrows
+     tuck over the images' transparent margins instead of a 3.5rem gutter. */
+  #dsImpactGallery .gallery__stage,
+  #dsGallery .gallery__stage,
+  #opsGallery .gallery__stage,
+  #imsImpactGallery .gallery__stage,
+  #shopImpactGallery .gallery__stage { padding: 0 0.5rem; }
+  #dsImpactGallery .gallery__nav,
+  #dsGallery .gallery__nav,
+  #opsGallery .gallery__nav,
+  #imsImpactGallery .gallery__nav,
+  #shopImpactGallery .gallery__nav {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+/* ============ Self-shopping (Datalogic) — code-built Impact slides ============
+   Interactive HTML/CSS diagrams that reuse the gallery carousel. Black-and-white,
+   Bricolage for headings, Inter for body — no new fonts or colours. */
+.ssi { width: 100%; max-width: 720px; margin: 0 auto; color: var(--ink-2); font-family: var(--font-body); }
+
+/* Slide 1 — two inputs feed one output */
+.ssi-map { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 0.75rem; }
+.ssi-map__inputs { display: flex; flex-direction: column; gap: 0.75rem; }
+.ssi-io { text-align: left; border: 1px solid var(--line); background: var(--card); border-radius: 14px; padding: 0.8rem 0.9rem; cursor: pointer; display: flex; flex-direction: column; gap: 0.3rem; color: inherit; }
+.ssi-io__t { font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+.ssi-io__d { font-size: 0.8rem; line-height: 1.45; color: var(--ink-3); }
+.ssi-io:not(.is-on) .ssi-io__d { display: none; }
+.ssi-io.is-on { border-color: var(--ink); }
+.ssi-map__links { display: flex; flex-direction: column; gap: 1.1rem; align-items: center; }
+.ssi-map__links span { display: block; width: 32px; height: 2px; background: var(--line); }
+.ssi-map.is-complete .ssi-map__links span { background: var(--ink); }
+.ssi-map__out { border: 1px solid var(--line); background: var(--card); border-radius: 14px; padding: 0.8rem 0.9rem; display: flex; flex-direction: column; gap: 0.3rem; opacity: 0.45; }
+.ssi-out__t { font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+.ssi-out__d { font-size: 0.8rem; line-height: 1.45; color: var(--ink-3); }
+.ssi-map.is-complete .ssi-map__out { opacity: 1; background: var(--ink); border-color: var(--ink); }
+.ssi-map.is-complete .ssi-out__t, .ssi-map.is-complete .ssi-out__d { color: #fff; }
+
+/* Slide 2 — "about 1 month" track */
+.ssi-track { display: flex; flex-direction: column; gap: 0.9rem; }
+.ssi-track__scale { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.ssi-track__steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem; }
+.ssi-step { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 0.45rem 0.4rem; font-size: 0.76rem; font-family: var(--font-body); color: var(--ink-3); cursor: pointer; text-align: center; line-height: 1.25; }
+.ssi-step.is-done { color: var(--ink); border-color: var(--ink-3); }
+.ssi-step[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.ssi-track__bar { position: relative; height: 3px; background: var(--line); border-radius: 999px; margin-top: 0.5rem; }
+.ssi-track__fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--ink); border-radius: 999px; }
+.ssi-track__line { margin: 0; font-size: 0.85rem; color: var(--ink-2); min-height: 1.3em; }
+.ssi-track__marker { margin: 0; font-size: 0.72rem; font-weight: 600; color: var(--ink-3); }
+
+/* Slide 3 — the shopping trip + phone frame */
+.ssi-trip { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem; align-items: center; }
+.ssi-trip__stops { display: flex; flex-direction: column; gap: 0.5rem; }
+.ssi-stop { text-align: left; border: 1px solid var(--line); background: var(--card); border-radius: 12px; padding: 0.55rem 0.8rem; font-size: 0.85rem; font-family: var(--font-body); color: var(--ink-3); cursor: pointer; }
+.ssi-stop[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.ssi-phone { position: relative; border: 2px solid var(--ink); border-radius: 28px; width: 168px; height: 318px; padding: 1.5rem 1.1rem; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
+.ssi-phone::before { content: ""; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 44px; height: 4px; border-radius: 999px; background: var(--ink); opacity: 0.25; }
+.ssi-phone__t { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--ink); }
+.ssi-phone__d { font-size: 0.85rem; line-height: 1.45; color: var(--ink-3); }
+.ssi-ship { margin: 1rem 0 0; text-align: center; font-size: 0.82rem; font-weight: 600; color: var(--ink-3); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ssi-io, .ssi-map__out, .ssi-map__links span, .ssi-step, .ssi-stop, .ssi-track__fill {
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease, width 0.3s ease;
+  }
+}
+
+@media (max-width: 640px) {
+  .ssi-map { grid-template-columns: 1fr; }
+  .ssi-map__links { flex-direction: row; justify-content: center; gap: 0.6rem; }
+  .ssi-map__links span { width: 2px; height: 22px; }
+  .ssi-track__steps { grid-template-columns: 1fr; }
+  .ssi-trip { grid-template-columns: 1fr; justify-items: center; }
+  .ssi-trip__stops { width: 100%; }
 }

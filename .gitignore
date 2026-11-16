@@ -16,3 +16,6 @@ book.html
 # OS / editor cruft
 .DS_Store
 **/.DS_Store
+
+# Case-study source assets (originals + video) — only the exported web images are committed
+Datalogic app images/
