@@ -19,3 +19,6 @@ book.html
 
 # Case-study source assets (originals + video) — only the exported web images are committed
 Datalogic app images/
+
+# Local scratch / drafts — not part of the site
+drafts/

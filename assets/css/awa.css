@@ -48,9 +48,10 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   margin: 0 0 1rem;
 }
+.awa-hero__mark { position: relative; display: inline-block; }
 .awa-hero__title {
   font-family: var(--font-display);
   font-weight: 400;
@@ -60,6 +61,13 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   line-height: 0.9;
   margin: 0;
 }
+.awa-hero__tagline {
+  font-size: clamp(1.05rem, 1.3vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 34ch;
+  margin: 1.2rem 0 0;
+}
 
 /* ---------- Two-column layout: side nav + content ---------- */
 .awa-layout {
@@ -68,6 +76,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: start;
 }
+
 
 /* ---------- Phase side navigation ---------- */
 .awa-phases {
@@ -96,7 +105,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.8rem;
-  color: var(--ink-faint);
+  color: var(--ink-3);
 }
 .awa-phase-btn:hover:not(:disabled):not(.is-active) {
   color: var(--ink);
@@ -119,16 +128,37 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 .awa-phase-btn:disabled { cursor: default; color: var(--ink-faint); }
 .awa-phase-btn__soon {
   display: inline-block;
-  font-size: 0.6rem;
+  font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.05rem 0.4rem;
   margin-left: 0.35rem;
 }
+
+/* Design system sub-navigation (Teresa 2026-11-04): the five parts of 03, under its menu item.
+   Shown only while 03 is open; the part being read is marked by weight and colour. */
+.awa-subnav--side {
+  display: none;
+  flex-direction: column;
+  border-left: 2px solid var(--line);
+  padding: 0.1rem 0 0.5rem;
+}
+body[data-phase="system"] .awa-subnav--side { display: flex; }
+.awa-subnav--side a {
+  padding: 0.3rem 0.75rem 0.3rem 2.35rem;
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  border-radius: 0 8px 8px 0;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.awa-subnav--side a:hover { color: var(--ink); background: var(--box); }
+.awa-subnav--side a[aria-current="true"] { color: var(--ink); font-weight: 600; }
+.awa-subnav--chips { display: none; }
+#phase-system .awa-sys-block { scroll-margin-top: 88px; }
 
 /* ---------- Phase panel ---------- */
 .awa-panel { display: none; }
@@ -149,7 +179,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   margin: 0 0 1rem;
 }
 .awa-statement {
@@ -173,6 +203,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 }
 /* The idea: a centred focal statement, with a cue down to where it comes from */
 .awa-block--lead {
+  position: relative;
   min-height: min(60vh, 500px);
   display: flex;
   flex-direction: column;
@@ -182,6 +213,21 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 }
 .awa-block--lead .awa-block__label { text-align: center; }
 .awa-block--lead > p { font-size: 1.12rem; line-height: 1.7; }
+/* Ambient emotion-dot field — a single fixed backdrop behind the whole Awa
+   page, so every phase shares one continuous, full-bleed atmosphere (no edge
+   where it starts or stops). Content is lifted above it. On the dense phases
+   the field (in JS) clears the content column and keeps the dots in the
+   surrounding margins. */
+.awa-page-dots {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+.awa-page main.awa { position: relative; z-index: 1; }
+.awa-block--lead > *:not(.awa-idea-dots) { position: relative; z-index: 1; }
 .awa-block--origin {
   max-width: 50ch;
   margin-inline: auto;
@@ -195,7 +241,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   align-items: center;
   gap: 0.7rem;
   text-decoration: none;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -233,7 +279,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   margin: 0 0 0.75rem;
 }
 .awa-block p {
@@ -297,7 +343,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 
 .awa-pulse__hint {
   font-size: 0.78rem;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   margin: 0;
   text-align: center;
   transition: opacity 0.3s ease;
@@ -344,11 +390,15 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 .awa-cats {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 0.6rem 0.9rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--line);
 }
 .awa-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.45rem 1rem;
@@ -360,11 +410,41 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   white-space: nowrap;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
+/* Category colour-coding — each category carries an Awa hue */
+.awa-cat[data-cat="design"],     #cat-design     { --hue: #65A0FE; }
+.awa-cat[data-cat="mobile"],     #cat-mobile     { --hue: #FF9E7D; }
+.awa-cat[data-cat="backend"],    #cat-backend    { --hue: #72B172; }
+.awa-cat[data-cat="publishing"], #cat-publishing { --hue: #4073CC; }
+.awa-cat[data-cat="b2b"],        #cat-b2b        { --hue: #E57E73; }
+.awa-cat::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--hue, var(--ink-faint));
+}
 .awa-cat:hover:not(.is-active) { color: var(--ink); border-color: var(--ink); }
 .awa-cat.is-active {
   background: var(--ink);
   color: #fff;
   border-color: var(--ink);
+}
+/* Each tab = pill with its status caption underneath, so the stage is
+   visible without opening the category. */
+.awa-cat-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.awa-cat__status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
 }
 /* Category panel — all its tools + descriptions at once */
 .awa-cat-panel { display: none; }
@@ -374,11 +454,11 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   animation: awa-panel-in 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .awa-cat-tag {
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   margin: 0 0 1.1rem;
 }
 .awa-tools { margin: 0; }
@@ -391,10 +471,22 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 }
 .awa-tool:first-child { border-top: 0; padding-top: 0; }
 .awa-tool dt {
+  position: relative;
+  padding-left: 17px;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1rem;
   color: var(--ink);
+}
+.awa-tool dt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--hue, var(--ink-faint));
 }
 .awa-tool dd {
   margin: 0;
@@ -411,12 +503,12 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   from { opacity: 0; transform: translateX(-16px); }
   to   { opacity: 1; transform: none; }
 }
-#phase-stack.is-active .awa-cat { animation: awa-ltr 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
-#phase-stack.is-active .awa-cat:nth-child(1) { animation-delay: 0.04s; }
-#phase-stack.is-active .awa-cat:nth-child(2) { animation-delay: 0.12s; }
-#phase-stack.is-active .awa-cat:nth-child(3) { animation-delay: 0.20s; }
-#phase-stack.is-active .awa-cat:nth-child(4) { animation-delay: 0.28s; }
-#phase-stack.is-active .awa-cat:nth-child(5) { animation-delay: 0.36s; }
+#phase-stack.is-active .awa-cat-item { animation: awa-ltr 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+#phase-stack.is-active .awa-cat-item:nth-child(1) { animation-delay: 0.04s; }
+#phase-stack.is-active .awa-cat-item:nth-child(2) { animation-delay: 0.12s; }
+#phase-stack.is-active .awa-cat-item:nth-child(3) { animation-delay: 0.20s; }
+#phase-stack.is-active .awa-cat-item:nth-child(4) { animation-delay: 0.28s; }
+#phase-stack.is-active .awa-cat-item:nth-child(5) { animation-delay: 0.36s; }
 
 .awa-cat-panel.is-active .awa-tool { animation: awa-ltr 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
 .awa-cat-panel.is-active .awa-tool:nth-child(1) { animation-delay: 0.06s; }
@@ -429,7 +521,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 .awa-cat-panel.is-active .awa-tool:nth-child(8) { animation-delay: 0.55s; }
 
 @media (prefers-reduced-motion: reduce) {
-  #phase-stack.is-active .awa-cat,
+  #phase-stack.is-active .awa-cat-item,
   .awa-cat-panel.is-active .awa-tool { animation: none; }
 }
 
@@ -479,11 +571,11 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 .awa-step__result { color: var(--ink-2); }
 .awa-step__rlabel {
   display: inline-block;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   margin-right: 0.5rem;
 }
 .awa-brand {
@@ -500,7 +592,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   margin-bottom: 0.3rem;
 }
 .awa-brand__item p { margin: 0; color: var(--ink-2); line-height: 1.6; }
@@ -537,13 +629,87 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   background: var(--card);
 }
 .awa-intent__pillar--wide { grid-column: 1 / -1; }
-.awa-intent__dots {
+.awa-intent__hue {
   display: block;
-  width: 58px;
-  height: 44px;
-  margin: -2px 0 0.6rem -2px;   /* let the drifting dots breathe to the edges */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-bottom: 0.6rem;
 }
-.awa-intent__dots canvas { display: block; }
+
+/* Brand map — interactive: the five pillars orbit a dandelion core */
+.awa-concept-hint {
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  margin: clamp(1.25rem, 3vw, 2rem) 0 0.25rem;
+}
+.awa-concept-stage {
+  display: grid;
+  grid-template-columns: 1.3fr 0.95fr;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: center;
+}
+.awa-brandmap {
+  position: relative;
+  width: 100%;
+  height: clamp(340px, 44vw, 480px);
+}
+.awa-brandmap__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.awa-brandmap__node {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  padding: 6px 3px;
+  margin: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.awa-brandmap__node::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--hue, var(--ink-faint));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.awa-brandmap__node:hover { color: var(--ink); }
+.awa-brandmap__node.is-active { color: var(--ink); font-weight: 600; }
+.awa-brandmap__node.is-active::before {
+  transform: scale(1.4);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--hue, #999) 22%, transparent);
+}
+.awa-brandmap__node:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.awa-brandmap__node--l { flex-direction: row-reverse; transform: translate(-100%, -50%); }
+.awa-brandmap__node--r { transform: translate(0, -50%); }
+.awa-brandmap__node--t { transform: translate(-50%, -50%); }
+
+.awa-intent-detail { position: relative; min-height: 150px; }
+.awa-pd { display: none; }
+.awa-pd.is-active { display: block; animation: awa-panel-in 0.4s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.awa-pd__hue { display: block; width: 11px; height: 11px; border-radius: 50%; margin-bottom: 0.7rem; }
+.awa-pd__k {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+.awa-pd__v { font-size: 1rem; line-height: 1.6; color: var(--ink-2); margin: 0; }
+@media (max-width: 760px) {
+  .awa-concept-stage { grid-template-columns: 1fr; gap: 0.5rem; }
+  .awa-brandmap { height: clamp(300px, 74vw, 400px); }
+  .awa-intent-detail { min-height: 120px; text-align: center; }
+  .awa-pd__hue { margin-inline: auto; }
+}
 .awa-intent__k {
   font-family: var(--font-display);
   font-weight: 600;
@@ -599,6 +765,12 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   margin: 0 0 1.75rem;
   max-width: 64ch;
 }
+.awa-sys-note--lines { max-width: none; }
+.awa-sys-note--cols { max-width: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem clamp(1.5rem, 4vw, 3rem); }
+.awa-sys-note--cols p { margin: 0; }
+@media (max-width: 640px) { .awa-sys-note--cols { grid-template-columns: 1fr; } }
+.awa-sys-note--lines p { margin: 0; }
+.awa-sys-note--lines p + p { margin-top: 0.5rem; }
 .awa-sys-note code {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.9em;
@@ -624,6 +796,12 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 .awa-swatch__k { font-weight: 600; font-size: 0.82rem; color: var(--ink); }
+.awa-swatch__code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  color: var(--ink-3);
+  overflow-wrap: anywhere;
+}
 .awa-swatch__hex {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.72rem;
@@ -646,7 +824,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 .awa-type__spec {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.72rem;
-  color: var(--ink-faint);
+  color: var(--ink-3);
 }
 .awa-type__sample { margin: 0; color: var(--ink); font-family: var(--font-display); overflow-wrap: anywhere; }
 
@@ -661,7 +839,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 }
 .awa-scale__row:first-child { border-top: 0; }
 .awa-scale__k { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.8rem; color: var(--ink); }
-.awa-scale__v { font-size: 0.8rem; color: var(--ink-faint); }
+.awa-scale__v { font-size: 0.8rem; color: var(--ink-3); }
 .awa-space { display: inline-flex; align-items: center; }
 .awa-space i { width: 14px; height: 34px; background: #65A0FE; border-radius: 3px; }
 
@@ -681,66 +859,442 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 .awa-radius__box--pill { width: 84px; }
 .awa-radius__k { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.78rem; color: var(--ink-3); }
 
-/* How it connects to code */
-/* How it connects to code — Figma variables ⇄ src/theme, checked by the audit skill */
-.awa-sync { max-width: 620px; }
-.awa-sync__pair {
+/* How it works — values, meaning, routine, checks */
+.awa-how {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.9rem;
-  align-items: stretch;
+  counter-reset: none;
 }
-.awa-sync__node {
+.awa-how__step {
+  position: relative;
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.05rem 1.1rem;
   background: var(--card);
-  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  justify-content: center;
+  gap: 0.35rem;
 }
-.awa-sync__t { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
-.awa-sync__t code,
-.awa-sync__badge code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
-.awa-sync__d { font-size: 0.82rem; line-height: 1.4; color: var(--ink-3); }
-.awa-sync__bridge {
+/* An arrow between steps, so the four read as one sequence */
+.awa-how__step + .awa-how__step::before {
+  content: "→";
+  position: absolute;
+  left: -0.78rem;
+  top: 1.05rem;
+  transform: translateX(-50%);
+  color: var(--ink-faint);
+  font-size: 0.95rem;
+}
+.awa-how__num { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.72rem; color: var(--ink-3); }
+.awa-how__t { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+.awa-how__src { font-size: 0.8rem; color: var(--ink-2); font-weight: 600; }
+.awa-how__src code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; background: var(--box); padding: 0.05em 0.35em; border-radius: 4px; }
+.awa-how__d { margin: 0.3rem 0 0; font-size: 0.85rem; line-height: 1.5; color: var(--ink-3); }
+.awa-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Accessible by default — four rules + contrast fixes */
+.awa-a11y {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+}
+.awa-a11y__rule { display: flex; flex-direction: column; gap: 0.3rem; }
+.awa-a11y__rule svg {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50%;
+  background: #EDF5FF;
+  fill: none;
+  stroke: #1F4080;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 0.3rem;
+}
+.awa-a11y__t { font-weight: 600; color: var(--ink); font-size: 0.95rem; }
+.awa-a11y__d { font-size: 0.85rem; line-height: 1.45; color: var(--ink-3); }
+
+.awa-contrast { max-width: 1180px; }
+.awa-contrast__row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+.awa-contrast__row--head {
+  border-top: 0;
+  padding-top: 0;
+  font-size: 0.72rem;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.awa-contrast__where { color: var(--ink); font-weight: 500; }
+.awa-contrast__cell { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; padding-right: 1rem; }
+.awa-contrast__cell code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.78rem; }
+.awa-contrast__aa {
+  flex: none;
+  width: 44px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+}
+/* The result sits right after its own ratio, as a small tag, so it can't be read with the next column */
+.awa-contrast__cell::after {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.awa-contrast__cell.is-fail::after { content: "Below AA"; color: #AD5047; background: #FFF1E8; }
+.awa-contrast__cell.is-pass::after { content: "Passes AA"; color: #335438; background: #EDF5ED; }
+/* status pill sits at the right of its column, so the extra width is used */
+@media (min-width: 641px) {
+  .awa-contrast__cell { flex-wrap: nowrap; }
+  .awa-contrast__cell::after { margin-left: auto; }
+}
+.awa-contrast__key { margin: 0.75rem 0 0; font-size: 0.78rem; color: var(--ink-3); }
+
+/* AA tag on swatches approved for text on white */
+.awa-swatch__aa {
+  align-self: flex-start;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.05rem 0.4rem;
+}
+/* Code name under the Figma name (spacing.md, radius.lg) */
+.awa-scale__code {
+  display: block;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  color: var(--ink-3);
+  margin-top: 0.1rem;
+}
+.awa-radius__k { text-align: center; }
+
+/* When to use what (a sample from DESIGN.md) */
+.awa-ftabs { margin-bottom: 1.75rem; }
+.awa-ftab:focus-visible { outline-offset: 6px; }
+.awa-use { margin-top: 1.75rem; max-width: 760px; }
+.awa-use--first { margin-top: 0; }
+
+/* Components explorer, laid out like a Carbon component page:
+   thumbnails, then header (name, status, overview), the live demo on the left and the
+   documentation tabs (Guidelines, Specs, Code, Accessibility) on the right. */
+.awa-cx__strip {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.awa-cx__thumb {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
+  gap: 0.5rem;
+  padding: 0.85rem 0.5rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink-3);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
-.awa-sync__arrow { font-size: 1.3rem; color: var(--ink-2); line-height: 1; }
-.awa-sync__blabel { font-size: 0.72rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
-.awa-sync__audit {
-  margin-top: 0.9rem;
-  border: 1px dashed var(--line);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem 0.75rem;
-}
-.awa-sync__badge { font-weight: 600; color: var(--ink); }
+.awa-cx__thumb svg { width: 56px; height: 56px; display: block; }
+.awa-cx__thumb:hover { border-color: var(--ink-faint); color: var(--ink); }
+.awa-cx__thumb[aria-selected="true"] { border-color: var(--ink); color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); font-weight: 600; }
 
-/* Components — how they're grouped */
-.awa-components { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-.awa-comp {
+.awa-cx {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 1.5rem clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+.awa-cx__head { grid-column: 1 / -1; }
+.awa-cx__title { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.85rem; margin-bottom: 0.4rem; }
+.awa-cx__name { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.35rem, 1.8vw, 1.6rem); margin: 0; }
+.awa-cx__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #335438;
+  background: #EDF5ED;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+}
+.awa-cx__status span { font-size: 0.6rem; color: #5B7D60; }
+.awa-cx__intro { color: var(--ink-2); line-height: 1.6; margin: 0; max-width: 64ch; }
+
+/* Live demo */
+.awa-cx__stage {
+  position: sticky;
+  top: 88px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+}
+.awa-cx__frame { display: flex; justify-content: center; padding: 1rem 0.5rem 0.5rem; }
+.awa-cx__iframe { display: block; width: 100%; max-width: 400px; height: 320px; border: 0; background: #fff; transition: height 0.25s ease; }
+.awa-cx__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem 1rem;
+  border-top: 1px solid var(--line-soft);
+}
+.awa-cx__states { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.awa-cx__states[hidden] { display: none; }
+.awa-cx__state {
+  font: inherit;
+  font-size: 0.82rem;
+  min-height: 32px;
+  padding: 0.3rem 0.8rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 0.45rem 0.95rem;
-  font-size: 0.9rem;
+  background: #fff;
   color: var(--ink-2);
-  background: var(--card);
+  cursor: pointer;
 }
+.awa-cx__state:hover { border-color: var(--ink-faint); }
+.awa-cx__state[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.awa-cx__toggles { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.1rem; font-size: 0.82rem; color: var(--ink-2); }
+.awa-cx__toggle { display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; min-height: 32px; }
+.awa-cx__toggle input { width: 16px; height: 16px; margin: 0; accent-color: var(--ink); }
+.awa-cx__replay {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 32px;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--ink-2);
+  background: none;
+  border: 0;
+  padding: 0 0.2rem;
+  cursor: pointer;
+}
+.awa-cx__replay svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.awa-cx__replay:hover { color: var(--ink); }
+
+/* Documentation tabs */
+.awa-cx__tabs {
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.awa-cx__tabs::-webkit-scrollbar { display: none; }
+.awa-cx__tab {
+  flex: none;
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--ink-3);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.6rem 0 0.7rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+.awa-cx__tab:hover { color: var(--ink); }
+.awa-cx__tab[aria-selected="true"] { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
+.awa-cx__tp:focus-visible { outline-offset: 6px; }
+
+.awa-cx__h {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 0.7rem;
+}
+.awa-cx__sec + .awa-cx__sec, .awa-cx__use + .awa-cx__sec { margin-top: 1.75rem; }
+
+.awa-cx__use { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.awa-cx__use p { margin: 0; font-size: 0.92rem; line-height: 1.55; color: var(--ink-2); }
+
+.awa-cx__table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.awa-cx__table th, .awa-cx__table td { text-align: left; vertical-align: top; padding: 0.6rem 1rem 0.6rem 0; border-top: 1px solid var(--line-soft); line-height: 1.5; }
+.awa-cx__table thead th { border-top: 0; padding-top: 0; font-size: 0.72rem; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; }
+.awa-cx__table tbody th { font-weight: 600; color: var(--ink); white-space: nowrap; width: 30%; }
+.awa-cx__table td { color: var(--ink-2); padding-right: 0; }
+
+.awa-cx__anatomy, .awa-cx__a11y, .awa-cx__tokens { list-style: none; margin: 0; padding: 0; }
+.awa-cx__anatomy { display: grid; gap: 0.55rem; }
+.awa-cx__anatomy li { display: flex; gap: 0.65rem; align-items: baseline; font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); }
+.awa-cx__anatomy strong { color: var(--ink); font-weight: 600; }
+.awa-cx__n {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1F4080;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-1px);
+}
+
+/* Do / Don't pairs: green means good, peach means not so good, as in the app. Tint only, no accent edge (Teresa). */
+.awa-cx__dd { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.awa-cx__dd + .awa-cx__dd { margin-top: 0.75rem; }
+.awa-cx__dd p { margin: 0; padding: 0.75rem 0.9rem; border-radius: 12px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-2); }
+.awa-cx__dd p.awa-cx__dd-do { background: #EDF5ED; }
+.awa-cx__dd p.awa-cx__dd-dont { background: #FFF1E8; }
+.awa-cx__dd-k { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.25rem; }
+.awa-cx__dd-do .awa-cx__dd-k { color: #335438; }
+.awa-cx__dd-dont .awa-cx__dd-k { color: #AD5047; }
+
+.awa-cx__tokens { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.awa-cx__token {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+}
+.awa-cx__sw { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12); }
+
+.awa-cx__code {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: var(--box, #f6f6f7);
+  border-radius: 12px;
+  overflow-x: auto;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.awa-cx__props { display: grid; grid-template-columns: max-content 1fr; gap: 0.55rem 1.25rem; margin: 0; font-size: 0.88rem; line-height: 1.5; }
+.awa-cx__props dt { margin: 0; }
+.awa-cx__props dd { margin: 0; color: var(--ink-2); }
+.awa-cx__props code, .awa-cx__table code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.82em;
+  background: var(--box, #f6f6f7);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* Accessibility notes: the icons from "Accessible by default", one per note */
+.awa-cx__a11y { display: grid; gap: 1rem; }
+.awa-cx__a11y li { display: flex; gap: 0.85rem; align-items: flex-start; font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); }
+.awa-cx__a11y svg {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  padding: 7px;
+  border-radius: 50%;
+  background: #EDF5FF;
+  color: #1F4080;
+  fill: none;
+  stroke: #1F4080;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.awa-cx__a11y-k { display: block; font-weight: 600; color: var(--ink); font-size: 0.88rem; margin-bottom: 0.1rem; }
+
+.awa-cx__where { margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--line-soft); font-size: 0.88rem; color: var(--ink-3); }
+.awa-cx__app { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .awa-cx { grid-template-columns: 1fr; }
+  .awa-cx__stage { position: static; max-width: 440px; }
+}
+@media (max-width: 640px) {
+  .awa-cx__strip {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 2px var(--gutter) 4px;
+    scroll-padding-inline: var(--gutter);
+    contain: inline-size;          /* its six thumbnails must not widen the page */
+    scrollbar-width: none;
+  }
+  .awa-cx__strip::-webkit-scrollbar { display: none; }
+  .awa-cx__thumb { flex: 0 0 104px; scroll-snap-align: start; }
+  .awa-cx__tabs { contain: inline-size; gap: 1.25rem; }
+  .awa-cx__use, .awa-cx__dd { grid-template-columns: 1fr; }
+  .awa-cx__props { grid-template-columns: 1fr; gap: 0.15rem; }
+  .awa-cx__props dd + dt { margin-top: 0.55rem; }
+  .awa-cx__table tbody th { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .awa-cx__iframe, .awa-cx__thumb { transition: none; }
+}
+.awa-use__row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.88rem;
+  color: var(--ink-2);
+}
+.awa-use__row span:nth-child(2) { color: var(--ink); font-weight: 600; }
+.awa-use__row span:nth-child(3) { color: var(--ink-3); }
+.awa-use__row--head { border-top: 0; padding-top: 0; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.awa-use__row--head span:nth-child(n) { color: var(--ink-3); font-weight: 600; }
 
 @media (max-width: 640px) {
   .awa-type__row { grid-template-columns: 1fr; gap: 0.4rem; }
-  .awa-sync__pair { grid-template-columns: 1fr; }
-  .awa-sync__bridge { flex-direction: row; gap: 0.5rem; }
+  .awa-how { grid-template-columns: 1fr; }
+  .awa-how__step + .awa-how__step::before { content: "↓"; left: 1.05rem; top: -0.82rem; transform: translateY(-50%); }
+  .awa-a11y { grid-template-columns: 1fr 1fr; gap: 1.25rem 1rem; }
+  .awa-contrast__row { grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; }
+  .awa-contrast__row--head span:first-child { display: none; }
+  .awa-contrast__where { grid-column: 1 / -1; }
+  .awa-use__row { grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem; }
+  .awa-use__row span:first-child { grid-column: 1 / -1; }
+  .awa-use__row--head span:first-child { display: none; }
+}
+@media (min-width: 641px) and (max-width: 1100px) {
+  .awa-how, .awa-a11y { grid-template-columns: 1fr 1fr; }
+  .awa-how__step:nth-child(3)::before { content: none; }
 }
 
 /* ---------- Phase 5: The app (video in a phone frame) ---------- */
@@ -788,13 +1342,6 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   overflow: hidden;
   display: grid;
   place-items: center;
-}
-.awa-phone__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;         /* show the whole app; aspect already matches */
 }
 .awa-phone__placeholder {
   display: flex;
@@ -872,8 +1419,15 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
 .awa-loop__phone .awa-phone { width: min(360px, 60vw); }
 .awa-loop__cap {
   font-size: 0.8rem;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   text-align: center;
+}
+/* Shown above the phone as a tap prompt — slightly more present than the
+   footnote variant, and nudged down so it clears the section top. */
+.awa-loop__cap--top {
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  margin-bottom: 0.2rem;
 }
 .awa-node {
   grid-column: 1 / -1;
@@ -935,7 +1489,7 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
   font-size: 0.85rem;
-  color: var(--ink-faint);
+  color: var(--ink-3);
   max-width: 60ch;
   margin-inline: auto;
   text-align: center;
@@ -974,6 +1528,34 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
     white-space: nowrap;
   }
   .awa-phase-btn.is-active { border-left: 0; border-bottom-color: var(--ink); }
+  .awa-subnav--side, body[data-phase="system"] .awa-subnav--side { display: none; }
+  .awa-subnav--chips {
+    display: flex;
+    gap: 0.4rem;
+    position: sticky;
+    top: var(--awa-header-h, 64px);
+    z-index: 40;
+    margin: 0 calc(-1 * var(--gutter)) 1.5rem;
+    padding: 0.6rem var(--gutter);
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    overflow-x: auto;
+    scrollbar-width: none;
+    contain: inline-size;
+  }
+  .awa-subnav--chips::-webkit-scrollbar { display: none; }
+  .awa-subnav--chips a {
+    flex: none;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    background: #fff;
+  }
+  .awa-subnav--chips a[aria-current="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+  #phase-system .awa-sys-block { scroll-margin-top: 130px; }
   .awa-blocks { grid-template-columns: 1fr; }
   .awa-loop { padding-right: 30px; }            /* room for the loop-back curve */
   .awa-loop__grid { grid-template-columns: 1fr; row-gap: clamp(2.5rem, 9vw, 3.5rem); }
@@ -982,4 +1564,210 @@ body.awa-page .site-header { background: rgba(255, 255, 255, 0.82); }
   .awa-loop__stack { gap: 2.5rem 0.75rem; }
   .awa-node { padding: 0.75rem 0.85rem; }
   .awa-node--in { max-width: none; }
+}
+
+/* ---- Live app in the iPhone frame (awa-app/ = the Expo web build, 2026-11-02) ---------------- */
+/* The app is drawn at iPhone 17 size (402 × 874 pt) and scaled to the screen (--awa-scale, set in
+   awa.js), so its layout matches the simulator exactly. The frame draws the status bar + island. */
+.awa-phone__screen { aspect-ratio: 402 / 874; }
+.awa-phone__app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 402px;
+  height: 874px;
+  transform: scale(var(--awa-scale, 0.8));
+  transform-origin: 0 0;
+  background: #fff;
+}
+.awa-phone__frame { width: 100%; height: 100%; border: 0; display: block; background: #fff; }
+.awa-phone__status {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 54px;
+  pointer-events: none;
+  color: #120f0d;
+  font: 600 17px/1 -apple-system, "SF Pro Text", system-ui, sans-serif;
+}
+.awa-phone__time { position: absolute; left: 0; width: 132px; top: 21px; text-align: center; }
+.awa-phone__island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  width: 126px;
+  height: 37px;
+  margin-left: -63px;
+  border-radius: 999px;
+  background: #000;
+}
+.awa-phone__icons {
+  position: absolute;
+  right: 0;
+  width: 132px;
+  top: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  fill: currentColor;
+}
+.awa-phone-full { display: none; font-size: 0.85rem; color: var(--ink-2); }
+@media (max-width: 640px) {
+  .awa-phone-full { display: inline-block; }
+}
+
+/* ---------- Phase 1: The idea (Teresa 2026-11-04: fewer words, more to look at) ----------
+   Green and peach appear only on the seeds, where they mean good and not so good.
+   Blue carries the brand parts. Cards use a tint or a 1px line, never an accent edge. */
+.awa-idea { display: grid; gap: clamp(2.75rem, 6vw, 4.5rem); }
+.awa-idea__sec .awa-sys-h { margin-bottom: 1.1rem; }
+.awa-idea__k {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 0.5rem;
+}
+.awa-idea__t { display: block; font-weight: 600; color: var(--ink); font-size: 1rem; margin: 0.6rem 0 0.25rem; }
+.awa-idea p { margin: 0; color: var(--ink-2); line-height: 1.55; }
+
+/* 1. The line and the comparison */
+.awa-idea__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+.awa-idea p.awa-idea__line {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink-3);
+  max-width: 18ch;
+}
+.awa-idea__line span { color: #1F4080; }
+.awa-idea__compare { display: grid; gap: 0.75rem; }
+.awa-idea__card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.15rem 1.1rem;
+  background: #fff;
+}
+.awa-idea__card--st { background: var(--box); border-color: transparent; }
+.awa-idea__min { font-family: var(--font-display); font-size: 1.9rem; font-weight: 600; color: var(--ink-3); letter-spacing: -0.01em; }
+.awa-idea__seeds { list-style: none; margin: 0.15rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; }
+.awa-idea__seeds li { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; color: var(--ink); }
+.awa-idea__seed { width: 16px; height: 16px; border-radius: 50%; flex: none; }
+
+/* 2. The name */
+.awa-idea__name { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.75rem clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.awa-idea p.awa-idea__word {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #8A8B8F;               /* large text, 3.4:1 */
+}
+.awa-idea__word b { font-weight: 400; color: #1F4080; }
+.awa-idea p.awa-idea__text { max-width: 46ch; }
+
+/* 3. How it works */
+.awa-idea__steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+.awa-idea__step { border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.15rem 1.2rem; }
+.awa-idea svg { width: 26px; height: 26px; fill: none; stroke: #1F4080; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+/* 4. Who it's for */
+.awa-idea__who { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+.awa-idea__tag {
+  display: inline-block;
+  vertical-align: 2px;
+  margin-left: 0.4rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+}
+
+/* 5. What Awa stands for, as a brand page (Teresa 2026-11-05, option 2a): the wordmark on a
+   grey side panel, then the mission and two calm lists. Blue only on the wordmark and the mission. */
+.awa-idea__brand {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+}
+.awa-idea__brand-side {
+  background: var(--box);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 300px;
+}
+.awa-idea p.awa-idea__wordmark {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(4rem, 7vw, 5.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #1F4080;
+}
+.awa-idea p.awa-idea__brand-sub { font-size: 0.85rem; color: var(--ink-3); line-height: 1.5; }
+.awa-idea__brand-side .awa-idea__k { margin-bottom: 0.25rem; }
+.awa-idea__brand-main { padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 2rem); }
+.awa-idea p.awa-idea__mission {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.3vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #1F4080;               /* Primary/900, 10:1 on white */
+  max-width: 28ch;
+  margin-bottom: 1.75rem;
+}
+.awa-idea__brand-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem clamp(1.5rem, 3vw, 2.5rem); }
+.awa-idea__list { list-style: none; margin: 0; padding: 0; display: grid; }
+.awa-idea__list li, .awa-idea__list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--line-soft);
+}
+.awa-idea__list li:first-child, .awa-idea__list div:first-child { border-top: 0; padding-top: 0.1rem; }
+.awa-idea__list li > span:first-child, .awa-idea__list dt { font-weight: 600; color: var(--ink); }
+.awa-idea__list dd { margin: 0; }
+.awa-idea__aside { color: var(--ink-3); text-align: right; }
+.awa-idea__brand-main p.awa-idea__k, .awa-idea__brand-cols p.awa-idea__k { margin-bottom: 0.85rem; }
+
+@media (max-width: 900px) {
+  .awa-idea__brand { grid-template-columns: 1fr; }
+  .awa-idea__brand-side { min-height: 0; flex-direction: row; align-items: flex-end; }
+  .awa-idea p.awa-idea__wordmark { font-size: 3.2rem; }
+  .awa-idea__brand-side > div { text-align: right; }
+}
+
+/* 6. The book: same full width as the other cards */
+.awa-idea__book { display: flex; gap: 1.1rem; align-items: flex-start; border: 1px solid var(--line); border-radius: 16px; padding: 1.15rem; }
+.awa-idea__cover { flex: none; width: 56px; height: 72px; border-radius: 6px; background: #EDF5FF; display: inline-flex; align-items: center; justify-content: center; }
+.awa-idea__book .awa-idea__t { margin-top: 0; }
+.awa-idea__book p { max-width: 64ch; }
+.awa-idea__meta { font-weight: 400; color: var(--ink-3); margin-left: 0.35rem; }
+.awa-idea__link { display: inline-flex; gap: 0.3rem; margin-top: 0.6rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .awa-idea__hero, .awa-idea__name { grid-template-columns: 1fr; }
+  .awa-idea__steps, .awa-idea__who, .awa-idea__brand-cols { grid-template-columns: 1fr; }
 }

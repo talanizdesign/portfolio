@@ -104,31 +104,43 @@ function startHero(animate) {
   }, 1000);
 })();
 
-/* ---- Project tabs ---- */
-(function tabs() {
-  var tabEls = document.querySelectorAll('.tab');
-  if (!tabEls.length) return;
+/* ---- Project switcher: numbered sticky rail + "Next project" ---- */
+(function projects() {
+  var items = [].slice.call(document.querySelectorAll('.proj-item'));
+  if (!items.length) return;
+  var panels = [].slice.call(document.querySelectorAll('.panel'));
+  var order = items.map(function (it) { return it.getAttribute('data-tab'); });
+  var layout = document.querySelector('.proj-layout');
 
-  function activate(id) {
-    tabEls.forEach(function (t) {
-      t.classList.toggle('is-active', t.dataset.tab === id);
+  function activate(id, scroll) {
+    var i = order.indexOf(id);
+    if (i === -1) { i = 0; id = order[0]; }
+    items.forEach(function (it, k) {
+      it.classList.toggle('is-on', k === i);
+      it.setAttribute('aria-current', k === i ? 'true' : 'false');
     });
-    document.querySelectorAll('.panel').forEach(function (p) {
-      p.classList.toggle('is-active', p.id === 'panel-' + id);
-    });
+    panels.forEach(function (p) { p.classList.toggle('is-active', p.id === 'panel-' + id); });
     if (history.replaceState) history.replaceState(null, '', '#' + id);
+    if (scroll && layout) {
+      var top = layout.getBoundingClientRect().top + window.pageYOffset - 24;
+      window.scrollTo({ top: top < 0 ? 0 : top, behavior: 'smooth' });
+    }
   }
 
-  tabEls.forEach(function (t) {
-    t.addEventListener('click', function () { activate(t.dataset.tab); });
+  // Switching from the rail happens in place (like the Awa phase nav);
+  // the "Next project" button advances and scrolls to the top of the case.
+  items.forEach(function (it) {
+    it.addEventListener('click', function () { activate(it.getAttribute('data-tab'), false); });
+  });
+  document.querySelectorAll('.proj-next').forEach(function (b) {
+    b.addEventListener('click', function () { activate(b.getAttribute('data-tab'), true); });
   });
 
-  // Activate the project from the URL hash, or default to the first tab so the
-  // page is never blank when opened without a hash.
-  var valid = ['ds', 'ux', 'ops', 'shop', 'awa'];
+  // Activate the project from the URL hash, or default to the first so the page
+  // is never blank when opened without a hash. No scroll on first load.
   function fromHash() {
     var hash = (location.hash || '').replace('#', '');
-    activate(valid.indexOf(hash) !== -1 ? hash : tabEls[0].dataset.tab);
+    activate(order.indexOf(hash) !== -1 ? hash : order[0], false);
   }
   fromHash();
   window.addEventListener('hashchange', fromHash);
@@ -153,6 +165,16 @@ function startHero(animate) {
     var next = root.querySelector('.gallery__nav--next');
     var counter = root.querySelector('.gallery__counter');
     var dotsWrap = root.querySelector('.gallery__dots');
+
+    // Impact galleries keep their arrows in the footer (beside the dots) so they
+    // never shift vertically between slides of different heights.
+    if (root.classList.contains('gallery--topnav')) {
+      var footer = root.querySelector('.gallery__footer');
+      if (footer && prev && next) {
+        footer.insertBefore(prev, footer.firstChild);
+        footer.appendChild(next);
+      }
+    }
 
     var total = slides.length;
     var idx = 0;
@@ -246,4 +268,150 @@ function startHero(animate) {
       });
     });
   }
+})();
+
+/* ---- Design System Impact: four code-built, interactive slides. Same rules —
+   sensible defaults, interacting inside a slide never changes the carousel. ---- */
+(function designSystemImpact() {
+  var root = document.getElementById('dsImpactGallery');
+  if (!root) return;
+
+  // Before -> after switches (slides 1, 2): update that slide's readout.
+  root.querySelectorAll('.dsi-switch').forEach(function (group) {
+    var read = group.parentNode.querySelector('.dsi-read__t');
+    var btns = group.querySelectorAll('.dsi-switch__btn');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        if (read) read.textContent = b.getAttribute('data-val');
+      });
+    });
+  });
+
+  // Adoption stat tiles (slide 3): single-select emphasis.
+  var tiles = root.querySelectorAll('.dsi-tile');
+  tiles.forEach(function (b) {
+    b.addEventListener('click', function () {
+      tiles.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+    });
+  });
+
+  // Scalability platforms (slide 4): update the role line.
+  var plats = root.querySelectorAll('.dsi-plat');
+  var roleEl = root.querySelector('.dsi-scale__role');
+  plats.forEach(function (b) {
+    b.addEventListener('click', function () {
+      plats.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      if (roleEl) roleEl.textContent = b.getAttribute('data-role');
+    });
+  });
+})();
+
+/* ---- Tabbed fixed-height Impact panels: tabs, dots and caption switch which
+   slide shows. Shared by every project (.dsi-impact). Interacting inside a
+   slide (switches, steps, etc.) is wired separately and never changes tabs. ---- */
+(function tabbedImpacts() {
+  document.querySelectorAll('.dsi-impact').forEach(function (root) {
+    var tabs = [].slice.call(root.querySelectorAll('.dsi-tab'));
+    var slides = [].slice.call(root.querySelectorAll('.dsi-slide'));
+    var dots = [].slice.call(root.querySelectorAll('.dsi-dot'));
+    var cap = root.querySelector('.dsi-foot__cap');
+    if (!tabs.length || !slides.length) return;
+    var show = function (i) {
+      tabs.forEach(function (t, k) { t.classList.toggle('is-on', k === i); t.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+      slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+      dots.forEach(function (d, k) { d.classList.toggle('is-on', k === i); });
+      if (cap) cap.textContent = slides[i].getAttribute('data-cap') || '';
+    };
+    tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); }); });
+  });
+})();
+
+/* ---- Design Ops Impact: four code-built, interactive slides. ---- */
+(function designOpsImpact() {
+  var root = document.getElementById('opsGallery');
+  if (!root) return;
+
+  // Before/after switch (slide 1 — funnel).
+  root.querySelectorAll('.dsi-switch').forEach(function (group) {
+    var ops = group.closest('.ops');
+    var read = ops.querySelector('.ops-note');
+    var btns = group.querySelectorAll('.dsi-switch__btn');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        if (read) read.textContent = b.getAttribute('data-text');
+      });
+    });
+  });
+
+  // Team selector (slide 4): whoever is working, the core line stays constant.
+  var teamsels = root.querySelectorAll('.ops-teamsel');
+  var teamRead = root.querySelector('.ops-hub__readt');
+  teamsels.forEach(function (b) {
+    b.addEventListener('click', function () {
+      teamsels.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      if (teamRead) teamRead.textContent = b.getAttribute('data-line');
+    });
+  });
+
+  // Contribution cycle steps (slide 2).
+  var steps = root.querySelectorAll('.ops-step');
+  var cdetail = root.querySelector('.ops-cycle__detail');
+  steps.forEach(function (b) {
+    b.addEventListener('click', function () {
+      steps.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      if (cdetail) cdetail.innerHTML = b.getAttribute('data-detail');
+    });
+  });
+
+  // Reuse donut legend (slide 3).
+  var legs = root.querySelectorAll('.ops-leg');
+  var sdetail = root.querySelector('.ops-sprawl__detail');
+  legs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      legs.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      if (sdetail) sdetail.innerHTML = b.getAttribute('data-detail');
+    });
+  });
+})();
+
+/* ---- Red Dot / UX (IMS) Impact: before/outcome switches on each slide. ---- */
+(function imsImpact() {
+  var root = document.getElementById('imsImpactGallery');
+  if (!root) return;
+  root.querySelectorAll('.dsi-switch').forEach(function (group) {
+    var read = group.closest('.ims').querySelector('.ims-read');
+    var btns = group.querySelectorAll('.dsi-switch__btn');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        if (read) read.textContent = b.getAttribute('data-text');
+      });
+    });
+  });
+})();
+
+/* ---- Footer: live local time in Amsterdam. ---- */
+(function footerClock() {
+  var el = document.getElementById('footerClock');
+  if (!el) return;
+  function tick() {
+    try {
+      el.textContent = new Intl.DateTimeFormat('en-US', {
+        hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Europe/Amsterdam'
+      }).format(new Date());
+    } catch (e) { el.textContent = ''; }
+  }
+  tick();
+  setInterval(tick, 15000);
 })();

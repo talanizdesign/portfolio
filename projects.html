@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projects — Teresa Alaniz</title>
 <meta name="description" content="Selected work in design systems, UX, design operations, and product concepts." />
-<link rel="stylesheet" href="assets/css/style.css?v=79" />
+<link rel="stylesheet" href="assets/css/style.css?v=96" />
 </head>
 <body>
 
@@ -23,19 +23,33 @@
 
 <main class="projects-main container">
 
-  <nav class="tabs" aria-label="Projects">
-    <button class="tab" data-tab="ds" type="button">Design System</button>
-    <button class="tab" data-tab="ux" type="button">UX strategy</button>
-    <button class="tab" data-tab="ops" type="button">Design Ops</button>
-    <button class="tab" data-tab="shop" type="button">Self-shopping app</button>
-    <!-- Awa project temporarily hidden — to restore, uncomment this tab button and the #panel-awa section below.
-    <button class="tab" data-tab="awa" type="button">Awa</button>
-    -->
-  </nav>
+  <div class="proj-layout">
+    <aside class="proj-rail">
+      <nav class="proj-nav" aria-label="Projects">
+        <button class="proj-item is-on" data-tab="ds" type="button"><span class="proj-item__n">01</span><span class="proj-item__t">Design system</span></button>
+        <button class="proj-item" data-tab="shop" type="button"><span class="proj-item__n">02</span><span class="proj-item__t">Self-shopping app</span></button>
+        <button class="proj-item" data-tab="ops" type="button"><span class="proj-item__n">03</span><span class="proj-item__t">Design Ops</span></button>
+        <button class="proj-item" data-tab="ux" type="button"><span class="proj-item__n">04</span><span class="proj-item__t">UX strategy</span></button>
+        <!-- Awa project temporarily hidden — to restore, uncomment this item and the #panel-awa section below.
+        <button class="proj-item" data-tab="awa" type="button"><span class="proj-item__n">05</span><span class="proj-item__t">Awa</span></button>
+        -->
+      </nav>
+    </aside>
+    <div class="proj-content">
 
   <!-- ============ DESIGN SYSTEMS ============ -->
   <section class="panel" id="panel-ds">
-    <h1 class="case__title">One design system for Tetra Pak’s product portfolio</h1>
+    <h1 class="case__title">Multi-Product Design System</h1>
+    <p class="case__lead">One design system for Tetra Pak’s product portfolio</p>
+
+    <div class="case-meta">
+      <dl class="case-meta__grid">
+        <div class="case-meta__col"><dt>Role</dt><dd>Design Director</dd><dd>2023—2026</dd></div>
+        <div class="case-meta__col"><dt>Scope</dt><dd>Design system</dd><dd>Governance</dd><dd>Documentation</dd></div>
+        <div class="case-meta__col"><dt>Industry</dt><dd>Manufacturing</dd><dd>Enterprise B2B</dd></div>
+        <div class="case-meta__col"><dt>Type</dt><dd>Design system</dd></div>
+      </dl>
+    </div>
 
     <!-- ===== Hero: In short (left) + Impact images (right) ===== -->
     <div class="case-hero">
@@ -50,35 +64,102 @@
 
       <div class="case-hero__media">
         <h2 class="h-sec">Impact</h2>
-        <div class="gallery" id="dsImpactGallery">
-          <div class="gallery__stage">
-            <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous image">‹</button>
-
-            <div class="gallery__track">
-              <figure class="gallery__slide is-active">
-                <img src="assets/img/design-system-impact/01-features-sooner.png?v=9" alt="Features ship sooner" loading="eager" />
-                <figcaption class="gallery__caption">Features ship sooner</figcaption>
-              </figure>
-              <figure class="gallery__slide">
-                <img src="assets/img/design-system-impact/02-lower-cost.png?v=9" alt="Fewer fixes, lower cost" loading="eager" />
-                <figcaption class="gallery__caption">Fewer fixes, lower cost</figcaption>
-              </figure>
-              <figure class="gallery__slide">
-                <img src="assets/img/design-system-impact/03-used-daily.png?v=9" alt="Used every day, across teams" loading="eager" />
-                <figcaption class="gallery__caption">Used every day, across teams</figcaption>
-              </figure>
-              <figure class="gallery__slide">
-                <img src="assets/img/design-system-impact/04-scales.png?v=9" alt="Scales without starting over" loading="eager" />
-                <figcaption class="gallery__caption">Scales without starting over</figcaption>
-              </figure>
-            </div>
-
-            <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next image">›</button>
+        <div class="dsi-impact" id="dsImpactGallery">
+          <div class="dsi-tabs" role="tablist" aria-label="Impact dimensions">
+            <button class="dsi-tab is-on" type="button" role="tab" aria-selected="true" data-i="0">Time to market</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="1">Operational efficiency</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="2">Adoption</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="3">Scalability</button>
           </div>
 
-          <div class="gallery__footer">
-            <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
-            <span class="gallery__counter">1 / 4</span>
+          <div class="dsi-stage">
+            <!-- Slide 1 — time to market -->
+            <div class="dsi-slide is-active" data-i="0" data-cap="Features ship sooner">
+              <div class="dsi-slide__hero">
+                <p class="dsi__eyebrow">Brief → developer-ready</p>
+                <span class="dsi-hero__num">~80%</span>
+                <p class="dsi-hero__label">Faster from brief to developer-ready design</p>
+              </div>
+              <div class="dsi-slide__body">
+                <p class="dsi__claim">Decisions are made once and documented, so <strong>designers build on them instead of debating them again.</strong></p>
+                <div class="dsi-switch" role="group" aria-label="Brief to developer-ready design">
+                  <button class="dsi-switch__btn" type="button" aria-pressed="false" data-val="~1 week">Before the system</button>
+                  <button class="dsi-switch__btn" type="button" aria-pressed="true" data-val="under 1 day">With the system</button>
+                </div>
+                <p class="dsi-read" aria-live="polite"><span class="dsi-read__t">under 1 day</span> from brief to developer-ready design</p>
+              </div>
+            </div>
+
+            <!-- Slide 2 — operational efficiency -->
+            <div class="dsi-slide" data-i="1" data-cap="Fewer fixes, lower cost">
+              <div class="dsi-slide__hero">
+                <p class="dsi__eyebrow">Rounds of fixes</p>
+                <span class="dsi-hero__num">67%</span>
+                <p class="dsi-hero__label">Fewer rounds of fixes between design and development</p>
+              </div>
+              <div class="dsi-slide__body">
+                <p class="dsi__claim">Every component is designed once and reused across products, so <strong>Tetra Pak stops paying to design, fix and rebuild the same UI.</strong></p>
+                <div class="dsi-switch" role="group" aria-label="Rounds of fixes between design and development">
+                  <button class="dsi-switch__btn" type="button" aria-pressed="false" data-val="3+ rounds">Before the system</button>
+                  <button class="dsi-switch__btn" type="button" aria-pressed="true" data-val="1 round">With the system</button>
+                </div>
+                <p class="dsi-read" aria-live="polite"><span class="dsi-read__t">1 round</span> of fixes between design and development</p>
+                <div class="dsi-found">
+                  <p class="dsi-found__k">The reusable foundation</p>
+                  <div class="dsi-found__row">
+                    <span class="dsi-chip">Documented components</span>
+                    <span class="dsi-chip">Design tokens</span>
+                    <span class="dsi-chip">Developer handoff process</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 — adoption -->
+            <div class="dsi-slide" data-i="2" data-cap="Used every day, across teams">
+              <div class="dsi-slide__hero">
+                <p class="dsi__eyebrow">Inserts in one week</p>
+                <span class="dsi-hero__num">4.7k</span>
+                <p class="dsi-hero__label">Component inserts in one week</p>
+              </div>
+              <div class="dsi-slide__body">
+                <p class="dsi__claim">Teams across the product family build with the design system every day. <strong>Each insert is a component reused instead of designed again.</strong></p>
+                <div class="dsi-stat">
+                  <span class="dsi-stat__num">33 <span class="dsi-tile__of">of ~45</span></span>
+                  <span class="dsi-tile__meter"><span style="width:73%"></span></span>
+                  <span class="dsi-tile__label">Figma team workspaces using the core library (total is an estimate)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 — scalability -->
+            <div class="dsi-slide" data-i="3" data-cap="Scales without starting over">
+              <div class="dsi-slide__hero">
+                <p class="dsi__eyebrow">User types served</p>
+                <span class="dsi-hero__num">31</span>
+                <p class="dsi-hero__label">User types served across the ecosystem</p>
+              </div>
+              <div class="dsi-slide__body">
+                <p class="dsi__claim">The design system now forms the <strong>UI foundation of the Tetra Pak® Factory OS™</strong> ecosystem: proof that it scales beyond the products it was built for.</p>
+                <div class="dsi-plats" role="group" aria-label="Platforms built on the design system">
+                  <button class="dsi-plat" type="button" aria-pressed="true" data-role="Material preparation and traceability">Mobile</button>
+                  <button class="dsi-plat" type="button" aria-pressed="false" data-role="Real-time production and quality insights">Web</button>
+                  <button class="dsi-plat" type="button" aria-pressed="false" data-role="Smart screens controlling factory machines">HMI</button>
+                </div>
+                <p class="dsi-scale__role" aria-live="polite">Material preparation and traceability</p>
+                <p class="dsi-scale__validation"><strong>Tetra Pak® Factory OS™</strong> — built on the design system</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="dsi-foot">
+            <span class="dsi-foot__cap" aria-live="polite">Features ship sooner</span>
+            <span class="dsi-foot__dots">
+              <button class="dsi-dot is-on" type="button" aria-label="Show Time to market"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Operational efficiency"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Adoption"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Scalability"></button>
+            </span>
           </div>
         </div>
       </div>
@@ -163,11 +244,25 @@
       </div>
     </div>
 
+    <button class="proj-next" data-tab="shop" type="button">
+      <span class="proj-next__main"><span class="proj-next__k">Next project</span><span class="proj-next__t">02 — Datalogic Self-Shopping App</span></span>
+      <span class="proj-next__arrow" aria-hidden="true">→</span>
+    </button>
   </section>
 
   <!-- ============ UX ============ -->
   <section class="panel" id="panel-ux">
-    <h1 class="case__title">Designing an industrial platform - Red Dot: Best of the Best 2024</h1>
+    <h1 class="case__title">IMS Industrial HMI Platform</h1>
+    <p class="case__lead">Designing an industrial platform — Red Dot: Best of the Best 2024</p>
+
+    <div class="case-meta">
+      <dl class="case-meta__grid">
+        <div class="case-meta__col"><dt>Role</dt><dd>Design Director</dd><dd>2024</dd></div>
+        <div class="case-meta__col"><dt>Scope</dt><dd>UX strategy</dd><dd>HMI design</dd><dd>Field research</dd></div>
+        <div class="case-meta__col"><dt>Industry</dt><dd>Industrial machinery</dd><dd>Manufacturing</dd></div>
+        <div class="case-meta__col"><dt>Type</dt><dd>HMI platform</dd></div>
+      </dl>
+    </div>
 
     <!-- ===== Hero: In short (left) + Impact images (right) ===== -->
     <div class="case-hero">
@@ -182,31 +277,104 @@
 
       <div class="case-hero__media">
         <h2 class="h-sec">Impact</h2>
-        <div class="gallery" id="imsImpactGallery">
-          <div class="gallery__stage">
-            <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous image">‹</button>
-
-            <div class="gallery__track">
-              <figure class="gallery__slide is-active">
-                <img src="assets/img/ims-impact/01-minimising-disruption.png?v=1" alt="Minimising costly disruption" loading="eager" />
-                <figcaption class="gallery__caption">Minimising costly disruption</figcaption>
-              </figure>
-              <figure class="gallery__slide">
-                <img src="assets/img/ims-impact/02-reducing-effort.png?v=1" alt="Reducing development effort" loading="lazy" />
-                <figcaption class="gallery__caption">Reducing development effort</figcaption>
-              </figure>
-              <figure class="gallery__slide">
-                <img src="assets/img/ims-impact/03-raising-perception.png?v=1" alt="Raising product perception" loading="lazy" />
-                <figcaption class="gallery__caption">Raising product perception</figcaption>
-              </figure>
-            </div>
-
-            <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next image">›</button>
+        <div class="dsi-impact dsi-impact--full" id="imsImpactGallery">
+          <div class="dsi-tabs" role="tablist" aria-label="Impact dimensions">
+            <button class="dsi-tab is-on" type="button" role="tab" aria-selected="true" data-i="0">Machine operations</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="1">Scalability</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="2">Market position</button>
           </div>
 
-          <div class="gallery__footer">
-            <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
-            <span class="gallery__counter">1 / 3</span>
+          <div class="dsi-stage">
+              <!-- Machine operations -->
+              <div class="dsi-slide is-active" data-i="0" data-cap="Minimising costly disruption">
+                <div class="ims">
+                  <p class="dsi__eyebrow">Machine operations</p>
+                  <p class="dsi__claim">Operators and technicians can follow every stage of the machine’s work in real time, so <strong>problems are spotted and handled sooner.</strong></p>
+                  <figure class="ims-quote">
+                    <blockquote>“It allows us to monitor the various stages of machine operation and intervene quickly when needed.”</blockquote>
+                    <figcaption><b>Fabio Cantamessa</b><span>Automation Manager, IMS Technologies</span></figcaption>
+                  </figure>
+                  <div class="ims-makes">
+                    <p class="dsi-found__k">What makes it possible</p>
+                    <div class="dsi-found__row">
+                      <span class="dsi-chip">Real-time machine feedback</span>
+                      <span class="dsi-chip">Cutting station control</span>
+                      <span class="dsi-chip">Sensor graphs for diagnostics</span>
+                    </div>
+                  </div>
+                  <div class="dsi-switch" role="group" aria-label="Before and outcome">
+                    <button class="dsi-switch__btn" type="button" aria-pressed="false" data-text="A new generation of complex, data-driven machines. On heavy equipment, an unclear screen can lead to operator errors and lost production time.">Before</button>
+                    <button class="dsi-switch__btn" type="button" aria-pressed="true" data-text="Production and maintenance teams act on problems sooner, protecting machine uptime.">Outcome</button>
+                  </div>
+                  <p class="ims-read" aria-live="polite">Production and maintenance teams act on problems sooner, protecting machine uptime.</p>
+                </div>
+              </div>
+
+              <!-- Scalability -->
+              <div class="dsi-slide" data-i="1" data-cap="Reducing development effort">
+                <div class="ims">
+                  <p class="dsi__eyebrow">Scalability</p>
+                  <p class="dsi__claim">The interface was designed as a scalable system for the new machine generation, so <strong>IMS doesn’t redesign it machine by machine.</strong></p>
+                  <div class="ims-flow">
+                    <div class="ims-flow__card">
+                      <span class="ims-flow__k">Field research</span>
+                      <span class="ims-flow__n">2</span>
+                      <span class="ims-flow__l">countries of on-site research with operators — Italy and China</span>
+                    </div>
+                    <span class="ims-flow__arrow" aria-hidden="true">→</span>
+                    <div class="ims-flow__card ims-flow__card--dark">
+                      <span class="ims-flow__k">One interface system</span>
+                      <span class="ims-sys-item">Customisable dashboard</span>
+                      <span class="ims-sys-item">Shared design principles</span>
+                      <span class="ims-sys-item">Custom icon set</span>
+                    </div>
+                    <span class="ims-flow__arrow" aria-hidden="true">→</span>
+                    <div class="ims-flow__card ims-flow__targets">
+                      <span class="ims-target ims-target--now">New machine generation <em>In production</em></span>
+                      <span class="ims-target">Next machine</span>
+                      <span class="ims-target">Future machines</span>
+                    </div>
+                  </div>
+                  <div class="dsi-switch" role="group" aria-label="Before and outcome">
+                    <button class="dsi-switch__btn" type="button" aria-pressed="false" data-text="Each new, more complex machine raised the same question: how do operators learn and use it quickly?">Before</button>
+                    <button class="dsi-switch__btn" type="button" aria-pressed="true" data-text="A research-based foundation IMS can carry across its machines, designed to cut learning and task time.">Outcome</button>
+                  </div>
+                  <p class="ims-read" aria-live="polite">A research-based foundation IMS can carry across its machines, designed to cut learning and task time.</p>
+                </div>
+              </div>
+
+              <!-- Market position -->
+              <div class="dsi-slide" data-i="2" data-cap="Raising product perception">
+                <div class="ims">
+                  <p class="dsi__eyebrow">Market position</p>
+                  <p class="dsi__claim">The interface became part of what makes IMS’s new machine generation a premium product, <strong>with independent recognition to prove it.</strong></p>
+                  <div class="ims-award">
+                    <div>
+                      <span class="ims-award__k">Red Dot Award 2024</span>
+                      <span class="ims-award__big">Best of<br />the Best</span>
+                    </div>
+                    <div class="ims-award__pts">
+                      <div class="ims-award__pt"><b>Highest award in its category</b><span>Interaction, UI &amp; User Experience</span></div>
+                      <div class="ims-award__pt"><b>Judged independently</b><span>External proof of the interface’s quality</span></div>
+                    </div>
+                  </div>
+                  <p class="ims-designlang"><b>One design language</b> — shared principles and custom icons, so every screen looks and feels like an IMS machine.</p>
+                  <div class="dsi-switch" role="group" aria-label="Before and outcome">
+                    <button class="dsi-switch__btn" type="button" aria-pressed="false" data-text="Product perception and brand were explicit goals: the interface had to match the quality of the machines.">Before</button>
+                    <button class="dsi-switch__btn" type="button" aria-pressed="true" data-text="IMS presents its new machines to the market with an interface recognised as best in class.">Outcome</button>
+                  </div>
+                  <p class="ims-read" aria-live="polite">IMS presents its new machines to the market with an interface recognised as best in class.</p>
+                </div>
+              </div>
+          </div>
+
+          <div class="dsi-foot">
+            <span class="dsi-foot__cap" aria-live="polite">Minimising costly disruption</span>
+            <span class="dsi-foot__dots">
+              <button class="dsi-dot is-on" type="button" aria-label="Show Machine operations"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Scalability"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Market position"></button>
+            </span>
           </div>
         </div>
       </div>
@@ -257,12 +425,26 @@
         allowfullscreen
         loading="lazy"></iframe>
     </div>
+
+    <button class="proj-next" data-tab="ds" type="button">
+      <span class="proj-next__main"><span class="proj-next__k">Next project</span><span class="proj-next__t">01 — Multi-Product Design System</span></span>
+      <span class="proj-next__arrow" aria-hidden="true">→</span>
+    </button>
   </section>
 
   <!-- ============ DESIGN OPS ============ -->
   <section class="panel" id="panel-ops">
-    <h1 class="case__title">Design Ops for Complex Product Ecosystem</h1>
-    <p class="case__subtitle">Design ops is how design works across product teams: it makes room to explore new ways of working, while protecting delivery and cost.</p>
+    <h1 class="case__title">Tetra Pak DesignOps</h1>
+    <p class="case__lead">Design Ops for Complex Product Ecosystem</p>
+
+    <div class="case-meta">
+      <dl class="case-meta__grid">
+        <div class="case-meta__col"><dt>Role</dt><dd>Design Director</dd><dd>2023—2026</dd></div>
+        <div class="case-meta__col"><dt>Scope</dt><dd>Design operations</dd><dd>Governance</dd><dd>Process</dd></div>
+        <div class="case-meta__col"><dt>Industry</dt><dd>Manufacturing</dd><dd>Enterprise B2B</dd></div>
+        <div class="case-meta__col"><dt>Type</dt><dd>Operating model</dd></div>
+      </dl>
+    </div>
 
     <!-- ===== Hero: In short (left) + Impact images (right) ===== -->
     <div class="case-hero">
@@ -277,35 +459,104 @@
 
       <div class="case-hero__media">
         <h2 class="h-sec">Impact</h2>
-        <div class="gallery" id="opsGallery">
-        <div class="gallery__stage">
-          <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous image">‹</button>
-
-          <div class="gallery__track">
-            <figure class="gallery__slide is-active">
-              <img src="assets/img/design-ops/01-predictable-delivery.png?v=9" alt="Making design delivery predictable" loading="eager" />
-              <figcaption class="gallery__caption">Making design delivery predictable</figcaption>
-            </figure>
-            <figure class="gallery__slide">
-              <img src="assets/img/design-ops/02-contribution-model.png?v=9" alt="One centralised contribution model for the whole product family" loading="eager" />
-              <figcaption class="gallery__caption">One centralised contribution model for the whole product family</figcaption>
-            </figure>
-            <figure class="gallery__slide">
-              <img src="assets/img/design-ops/03-preventing-sprawl.png?v=9" alt="Preventing component sprawl" loading="eager" />
-              <figcaption class="gallery__caption">Preventing component sprawl</figcaption>
-            </figure>
-            <figure class="gallery__slide">
-              <img src="assets/img/design-ops/04-team-changes.png?v=9" alt="Built to hold up through team changes" loading="eager" />
-              <figcaption class="gallery__caption">Built to hold up through team changes</figcaption>
-            </figure>
+        <div class="dsi-impact dsi-impact--full" id="opsGallery">
+          <div class="dsi-tabs" role="tablist" aria-label="Impact dimensions">
+            <button class="dsi-tab is-on" type="button" role="tab" aria-selected="true" data-i="0">Predictable delivery</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="1">Contribution model</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="2">Preventing sprawl</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="3">Resilient to change</button>
           </div>
 
-          <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next image">›</button>
-        </div>
+          <div class="dsi-stage">
+            <!-- Predictable delivery -->
+            <div class="dsi-slide is-active" data-i="0" data-cap="Making design delivery predictable">
+              <div class="ops">
+                <p class="dsi__eyebrow">Design delivery across the portfolio</p>
+                <div class="ops-funnel">
+                  <div class="ops-funnel__row"><span class="ops-funnel__n">15+</span><span class="ops-funnel__l">designers</span></div>
+                  <div class="ops-funnel__row"><span class="ops-funnel__n">5</span><span class="ops-funnel__l">products</span></div>
+                  <div class="ops-funnel__row ops-funnel__row--end"><span class="ops-funnel__n">1</span><span class="ops-funnel__l">operating model</span></div>
+                </div>
+                <div class="dsi-switch" role="group" aria-label="Before and after one operating model">
+                  <button class="dsi-switch__btn" type="button" aria-pressed="false" data-text="Each design team made its own decisions, some with Tetra Pak’s Lead UX Researcher and some without.">Before</button>
+                  <button class="dsi-switch__btn" type="button" aria-pressed="true" data-text="Tetra Pak can plan, prioritise and spot risks early, because design work across every product is visible and documented in one place.">With one model</button>
+                </div>
+                <p class="ops-note" aria-live="polite">Tetra Pak can plan, prioritise and spot risks early, because design work across every product is visible and documented in one place.</p>
+              </div>
+            </div>
 
-          <div class="gallery__footer">
-            <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
-            <span class="gallery__counter">1 / 4</span>
+            <!-- Contribution model -->
+            <div class="dsi-slide" data-i="1" data-cap="One centralised contribution model">
+              <div class="ops ops-cycle">
+                <p class="dsi__eyebrow">The contribution model</p>
+                <p class="dsi__claim">The product suite stays consistent under one brand, and <strong>no single team’s decision can change the whole suite.</strong></p>
+                <p class="ops-cycle__hub">↻ Every change runs through the <b>Design system team</b></p>
+                <div class="ops-cycle__steps" role="group" aria-label="Contribution steps">
+                  <button class="ops-step" type="button" aria-pressed="true" data-detail="A product team asks for a new component or a change."><span class="ops-step__n">01</span><span class="ops-step__t">Change request</span></button>
+                  <button class="ops-step" type="button" aria-pressed="false" data-detail="Checked against the system, product needs and design principles. <strong>If a solution already exists, the team is guided to it.</strong>"><span class="ops-step__n">02</span><span class="ops-step__t">Evaluation</span></button>
+                  <button class="ops-step" type="button" aria-pressed="false" data-detail="The design system team makes a proposal, tests it with the product team and refines it."><span class="ops-step__n">03</span><span class="ops-step__t">Propose, test, refine</span></button>
+                  <button class="ops-step" type="button" aria-pressed="false" data-detail="Built into the core library(s) with its tokens."><span class="ops-step__n">04</span><span class="ops-step__t">Implementation</span></button>
+                  <button class="ops-step" type="button" aria-pressed="false" data-detail="Released, with usage documented for every team."><span class="ops-step__n">05</span><span class="ops-step__t">Documentation</span></button>
+                </div>
+                <p class="ops-cycle__detail" aria-live="polite">A product team asks for a new component or a change.</p>
+              </div>
+            </div>
+
+            <!-- Preventing sprawl -->
+            <div class="dsi-slide" data-i="2" data-cap="Preventing component sprawl">
+              <div class="ops ops-sprawl">
+                <div>
+                  <p class="dsi__eyebrow" style="margin-bottom:0.9rem">Reuse-first contribution</p>
+                  <p class="ops-sprawl__period">2023 – June 2026</p>
+                  <p class="ops-sprawl__big">21%</p>
+                  <p class="ops-sprawl__sub">of 204 requests needed nothing new</p>
+                  <p class="ops-sprawl__note">Nothing new to design, build, document or maintain. Teams were guided to the existing solution.</p>
+                </div>
+                <div class="ops-donutwrap">
+                  <div class="ops-donut" aria-hidden="true"></div>
+                  <div class="ops-legend" role="group" aria-label="What happened to the 204 requests">
+                    <button class="ops-leg ops-leg--reused" type="button" aria-pressed="true" data-detail="Nothing new was built — teams were guided to the existing solution.">21% reused</button>
+                    <button class="ops-leg" type="button" aria-pressed="false" data-detail="Product feedback shaped how the design system grew, keeping it aligned with real product needs.">79% evolved with product</button>
+                  </div>
+                </div>
+                <p class="ops-sprawl__detail" aria-live="polite">Nothing new was built — teams were guided to the existing solution.</p>
+              </div>
+            </div>
+
+            <!-- Resilient to change -->
+            <div class="dsi-slide" data-i="3" data-cap="Built to hold up through team changes">
+              <div class="ops ops-hub">
+                <p class="dsi__eyebrow">Resilient to team changes</p>
+                <p class="dsi__claim">Teams evolve over the life of the products. <strong>Because Tetra Pak holds the knowledge, the way of working and the assets, the model is resilient to change.</strong></p>
+                <div class="ops-hub__grid">
+                  <div class="ops-hub__teams" role="group" aria-label="Who is working on the products changes over time">
+                    <p class="ops-hub__teamk">Teams change…</p>
+                    <button class="ops-teamsel" type="button" aria-pressed="true" data-line="An established product team keeps building from the core.">An established team</button>
+                    <button class="ops-teamsel" type="button" aria-pressed="false" data-line="A new product team plugs into the core — nothing is rebuilt from scratch.">A new product team</button>
+                    <button class="ops-teamsel" type="button" aria-pressed="false" data-line="New people find the way of working, the assets and the knowledge already there.">New team members</button>
+                  </div>
+                  <div class="ops-hub__link" aria-hidden="true"><span class="ops-hub__arrow">→</span><span class="ops-hub__linklabel">connect to</span></div>
+                  <div class="ops-core">
+                    <p class="ops-core__k">The core — owned by</p>
+                    <p class="ops-core__owner">Tetra Pak</p>
+                    <div class="ops-core__item"><b>One way of working</b><span>From design to handoff</span></div>
+                    <div class="ops-core__item"><b>Assets</b><span>One shared Figma workspace</span></div>
+                    <div class="ops-core__item"><b>Knowledge</b><span>Decisions documented in one place</span></div>
+                  </div>
+                </div>
+                <p class="ops-hub__read" aria-live="polite"><strong>The core stays the same.</strong> <span class="ops-hub__readt">An established product team keeps building from the core.</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="dsi-foot">
+            <span class="dsi-foot__cap" aria-live="polite">Making design delivery predictable</span>
+            <span class="dsi-foot__dots">
+              <button class="dsi-dot is-on" type="button" aria-label="Show Predictable delivery"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Contribution model"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Preventing sprawl"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Resilient to change"></button>
+            </span>
           </div>
         </div>
       </div>
@@ -339,11 +590,26 @@
         </div>
       </div>
     </div>
+
+    <button class="proj-next" data-tab="ux" type="button">
+      <span class="proj-next__main"><span class="proj-next__k">Next project</span><span class="proj-next__t">04 — IMS Industrial HMI Platform</span></span>
+      <span class="proj-next__arrow" aria-hidden="true">→</span>
+    </button>
   </section>
 
   <!-- ============ SELF-SHOPPING (DATALOGIC) ============ -->
   <section class="panel" id="panel-shop">
-    <h1 class="case__title">Scan, pay and go: a self-shopping app for supermarkets</h1>
+    <h1 class="case__title">Datalogic Self-Shopping App</h1>
+    <p class="case__lead">Scan, pay and go: a self-shopping app for supermarkets</p>
+
+    <div class="case-meta">
+      <dl class="case-meta__grid">
+        <div class="case-meta__col"><dt>Role</dt><dd>Design Director</dd><dd>~4 weeks</dd></div>
+        <div class="case-meta__col"><dt>Scope</dt><dd>Product design</dd><dd>Information architecture</dd><dd>Prototype &amp; handoff</dd></div>
+        <div class="case-meta__col"><dt>Industry</dt><dd>Retail technology</dd></div>
+        <div class="case-meta__col"><dt>Type</dt><dd>Mobile app</dd></div>
+      </dl>
+    </div>
 
     <!-- ===== Hero: In short + Impact (built in code) ===== -->
     <div class="case-hero">
@@ -358,13 +624,16 @@
 
       <div class="case-hero__media">
         <h2 class="h-sec">Impact</h2>
-        <div class="gallery" id="shopImpactGallery">
-          <div class="gallery__stage">
-            <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous slide">‹</button>
+        <div class="dsi-impact dsi-impact--full" id="shopImpactGallery">
+          <div class="dsi-tabs" role="tablist" aria-label="Impact dimensions">
+            <button class="dsi-tab is-on" type="button" role="tab" aria-selected="true" data-i="0">From data gap to insight</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="1">Ready in four weeks</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="2">Shipped</button>
+          </div>
 
-            <div class="gallery__track">
-              <!-- Slide 1 — from no user data to product insights -->
-              <figure class="gallery__slide is-active">
+          <div class="dsi-stage">
+              <!-- From data gap to insight -->
+              <div class="dsi-slide is-active" data-i="0" data-cap="From no user data to product insights">
                 <div class="ssi ssi-map is-complete">
                   <div class="ssi-map__inputs">
                     <button class="ssi-io is-on" type="button" aria-pressed="true">
@@ -382,11 +651,10 @@
                     <span class="ssi-out__d">What shoppers need at each step of the trip, and which feature answers it.</span>
                   </div>
                 </div>
-                <figcaption class="gallery__caption">From no user data to product insights</figcaption>
-              </figure>
+              </div>
 
-              <!-- Slide 2 — ready to build in four weeks -->
-              <figure class="gallery__slide">
+              <!-- Ready in four weeks -->
+              <div class="dsi-slide" data-i="1" data-cap="Ready to build in four weeks">
                 <div class="ssi ssi-track">
                   <span class="ssi-track__scale">About 1 month</span>
                   <div class="ssi-track__rail">
@@ -402,11 +670,10 @@
                   <p class="ssi-track__line" aria-live="polite">Checked with product managers and developers: feasible to build and meeting business needs.</p>
                   <p class="ssi-track__marker">Product managers and developers involved throughout</p>
                 </div>
-                <figcaption class="gallery__caption">Ready to build in four weeks</figcaption>
-              </figure>
+              </div>
 
-              <!-- Slide 3 — shipped as part of Datalogic’s portfolio -->
-              <figure class="gallery__slide">
+              <!-- Shipped -->
+              <div class="dsi-slide" data-i="2" data-cap="Shipped as part of Datalogic’s portfolio">
                 <div class="ssi ssi-trip">
                   <div class="ssi-trip__stops" role="group" aria-label="The shopping trip">
                     <button class="ssi-stop" type="button" aria-pressed="false" data-title="Shopping list" data-line="Plan the trip before entering the store.">Before the store</button>
@@ -423,16 +690,16 @@
                   </div>
                 </div>
                 <p class="ssi-ship">Shipped. The app is now part of Datalogic’s retail product portfolio.</p>
-                <figcaption class="gallery__caption">Shipped as part of Datalogic’s portfolio</figcaption>
-              </figure>
-            </div>
-
-            <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next slide">›</button>
+              </div>
           </div>
 
-          <div class="gallery__footer">
-            <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
-            <span class="gallery__counter">1 / 3</span>
+          <div class="dsi-foot">
+            <span class="dsi-foot__cap" aria-live="polite">From no user data to product insights</span>
+            <span class="dsi-foot__dots">
+              <button class="dsi-dot is-on" type="button" aria-label="Show From data gap to insight"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Ready in four weeks"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Shipped"></button>
+            </span>
           </div>
         </div>
       </div>
@@ -511,6 +778,10 @@
       </div>
     </div>
 
+    <button class="proj-next" data-tab="ops" type="button">
+      <span class="proj-next__main"><span class="proj-next__k">Next project</span><span class="proj-next__t">03 — Tetra Pak DesignOps</span></span>
+      <span class="proj-next__arrow" aria-hidden="true">→</span>
+    </button>
   </section>
 
   <!-- ============ AWA (temporarily hidden — to restore, delete this line and the "END AWA hidden" line below, then uncomment the Awa tab button in the .tabs nav above) ============
@@ -559,16 +830,34 @@
     </div>
   </section>
   ============ END AWA hidden ============ -->
-
+    </div><!-- /.proj-content -->
+  </div><!-- /.proj-layout -->
 </main>
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <a href="https://books.apple.com/us/book/emotion-driven-innovation/id6478436705" target="_blank" rel="noopener">My book <span class="arrow" aria-hidden="true">↗</span></a>
-    <a href="https://theemotionbrief.substack.com" target="_blank" rel="noopener">The Emotion Brief <span class="arrow" aria-hidden="true">↗</span></a>
+    <div class="footer-meta">
+      <div class="footer-meta__col">
+        <span class="footer-meta__v">© 2026 Teresa Alaniz</span>
+      </div>
+      <div class="footer-meta__col">
+        <span class="footer-meta__k">Local time (Amsterdam)</span>
+        <span class="footer-meta__v" id="footerClock">—</span>
+      </div>
+      <div class="footer-meta__col">
+        <span class="footer-meta__k">Colophon</span>
+        <span class="footer-meta__v">Designed and built by me, with Claude</span>
+      </div>
+      <div class="footer-meta__col footer-meta__col--links">
+        <span class="footer-meta__k">Elsewhere</span>
+        <a href="https://books.apple.com/us/book/emotion-driven-innovation/id6478436705" target="_blank" rel="noopener">My book <span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="https://theemotionbrief.substack.com" target="_blank" rel="noopener">The Emotion Brief <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <p class="site-footer__sign">Good products are built together.</p>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=16"></script>
+<script src="assets/js/main.js?v=26"></script>
 </body>
 </html>
