@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projects — Teresa Alaniz</title>
 <meta name="description" content="Selected work in design systems, UX, design operations, and product concepts." />
-<link rel="stylesheet" href="assets/css/style.css?v=96" />
+<link rel="stylesheet" href="assets/css/style.css?v=99" />
 </head>
 <body>
 
@@ -203,51 +203,23 @@
     </div>
 
     <!-- ===== Gallery ===== -->
-    <div class="gallery" id="dsGallery">
+    <div class="imgviewer" id="dsViewer">
       <h2 class="process__title">A look at the system</h2>
-      <div class="gallery__stage">
-        <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous image">‹</button>
-
-        <div class="gallery__track" id="dsTrack">
-          <figure class="gallery__slide is-active">
-            <img src="assets/img/design-system/01-hero.png?v=4" alt="Design system hero — built to manage the complexity of functional products" loading="lazy" />
-            <figcaption class="gallery__caption">System overview</figcaption>
-          </figure>
-          <figure class="gallery__slide">
-            <img src="assets/img/design-system/02-modular-architecture.png?v=4" alt="Modular architecture of the design system" loading="lazy" />
-            <figcaption class="gallery__caption">Modular architecture</figcaption>
-          </figure>
-          <figure class="gallery__slide">
-            <img src="assets/img/design-system/03-core-libraries.png?v=4" alt="Core libraries of the design system" loading="lazy" />
-            <figcaption class="gallery__caption">Core libraries</figcaption>
-          </figure>
-          <figure class="gallery__slide">
-            <img src="assets/img/design-system/04-ecosystem.png?v=4" alt="Bricks core libraries feeding product libraries and design files across the ecosystem" loading="lazy" />
-            <figcaption class="gallery__caption">Ecosystem</figcaption>
-          </figure>
-          <figure class="gallery__slide">
-            <img src="assets/img/design-system/05-reusable-ui.png?v=4" alt="Reusable UI components of the design system" loading="lazy" />
-            <figcaption class="gallery__caption">Reusable UI</figcaption>
-          </figure>
-          <figure class="gallery__slide">
-            <img src="assets/img/design-system/06-design-for-function.png?v=4" alt="Design for function, built to scale" loading="lazy" />
-            <figcaption class="gallery__caption">Design for function, built to scale</figcaption>
-          </figure>
-        </div>
-
-        <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next image">›</button>
+      <figure class="imgviewer__main"><img id="dsvMain" src="assets/img/design-system/01-hero.png?v=4" alt="Design system hero — built to manage the complexity of functional products" /></figure>
+      <div class="imgviewer__bar">
+        <span class="imgviewer__cap" aria-live="polite">System overview</span>
+        <span class="imgviewer__count">01 / 06</span>
       </div>
-
-      <div class="gallery__footer">
-        <div class="gallery__dots" id="dsDots" role="tablist" aria-label="Gallery navigation"></div>
-        <span class="gallery__counter" id="dsCounter">1 / 6</span>
+      <div class="imgviewer__thumbs" role="tablist" aria-label="A look at the system">
+        <button class="imgviewer__thumb is-on" type="button" role="tab" aria-selected="true" data-src="assets/img/design-system/01-hero.png?v=4" data-cap="System overview"><img src="assets/img/design-system/01-hero.png?v=4" alt="System overview" loading="lazy" /></button>
+        <button class="imgviewer__thumb" type="button" role="tab" aria-selected="false" data-src="assets/img/design-system/02-modular-architecture.png?v=4" data-cap="Modular architecture"><img src="assets/img/design-system/02-modular-architecture.png?v=4" alt="Modular architecture" loading="lazy" /></button>
+        <button class="imgviewer__thumb" type="button" role="tab" aria-selected="false" data-src="assets/img/design-system/03-core-libraries.png?v=4" data-cap="Core libraries"><img src="assets/img/design-system/03-core-libraries.png?v=4" alt="Core libraries" loading="lazy" /></button>
+        <button class="imgviewer__thumb" type="button" role="tab" aria-selected="false" data-src="assets/img/design-system/04-ecosystem.png?v=4" data-cap="Ecosystem"><img src="assets/img/design-system/04-ecosystem.png?v=4" alt="Ecosystem" loading="lazy" /></button>
+        <button class="imgviewer__thumb" type="button" role="tab" aria-selected="false" data-src="assets/img/design-system/05-reusable-ui.png?v=4" data-cap="Reusable UI"><img src="assets/img/design-system/05-reusable-ui.png?v=4" alt="Reusable UI" loading="lazy" /></button>
+        <button class="imgviewer__thumb" type="button" role="tab" aria-selected="false" data-src="assets/img/design-system/06-design-for-function.png?v=4" data-cap="Design for function, built to scale"><img src="assets/img/design-system/06-design-for-function.png?v=4" alt="Design for function" loading="lazy" /></button>
       </div>
     </div>
 
-    <button class="proj-next" data-tab="shop" type="button">
-      <span class="proj-next__main"><span class="proj-next__k">Next project</span><span class="proj-next__t">02 — Datalogic Self-Shopping App</span></span>
-      <span class="proj-next__arrow" aria-hidden="true">→</span>
-    </button>
   </section>
 
   <!-- ============ UX ============ -->
@@ -426,10 +398,6 @@
         loading="lazy"></iframe>
     </div>
 
-    <button class="proj-next" data-tab="ds" type="button">
-      <span class="proj-next__main"><span class="proj-next__k">Next project</span><span class="proj-next__t">01 — Multi-Product Design System</span></span>
-      <span class="proj-next__arrow" aria-hidden="true">→</span>
-    </button>
   </section>
 
   <!-- ============ DESIGN OPS ============ -->
@@ -591,10 +559,6 @@
       </div>
     </div>
 
-    <button class="proj-next" data-tab="ux" type="button">
-      <span class="proj-next__main"><span class="proj-next__k">Next project</span><span class="proj-next__t">04 — IMS Industrial HMI Platform</span></span>
-      <span class="proj-next__arrow" aria-hidden="true">→</span>
-    </button>
   </section>
 
   <!-- ============ SELF-SHOPPING (DATALOGIC) ============ -->
@@ -745,43 +709,28 @@
     </div>
 
     <!-- ===== A look at the app ===== -->
-    <div class="gallery" id="shopGallery">
+    <div class="appset" id="shopSet">
       <h2 class="process__title">A look at the app</h2>
-      <div class="gallery__stage">
-        <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous image">‹</button>
-
-        <div class="gallery__track">
-          <figure class="gallery__slide is-active">
-            <img src="assets/img/selfshopping/selfshopping-cart.png?v=1" alt="Cart screen with scanned products, item count and running total" loading="lazy" />
-            <figcaption class="gallery__caption">Scan and cart: live total with discounts applied</figcaption>
-          </figure>
-          <figure class="gallery__slide">
-            <img src="assets/img/selfshopping/selfshopping-product.png?v=1" alt="Product detail screen with a coupon to add" loading="lazy" />
-            <figcaption class="gallery__caption">Product detail and coupons</figcaption>
-          </figure>
-          <figure class="gallery__slide">
-            <img src="assets/img/selfshopping/selfshopping-checkout.png?v=1" alt="Checkout screen with payment methods" loading="lazy" />
-            <figcaption class="gallery__caption">Checkout without queuing</figcaption>
-          </figure>
-          <figure class="gallery__slide">
-            <img src="assets/img/selfshopping/selfshopping-rewards.png?v=1" alt="Loyalty rewards screen" loading="lazy" />
-            <figcaption class="gallery__caption">Loyalty rewards</figcaption>
-          </figure>
-        </div>
-
-        <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next image">›</button>
-      </div>
-
-      <div class="gallery__footer">
-        <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
-        <span class="gallery__counter">1 / 4</span>
+      <div class="appset__row">
+        <figure class="appset__card">
+          <div class="appset__shot"><img src="assets/img/selfshopping/selfshopping-cart.png?v=1" alt="Cart screen with scanned products, item count and running total" loading="lazy" /></div>
+          <figcaption class="appset__cap"><b>Scan &amp; cart</b>Live total, discounts applied</figcaption>
+        </figure>
+        <figure class="appset__card">
+          <div class="appset__shot"><img src="assets/img/selfshopping/selfshopping-product.png?v=1" alt="Product detail screen with a coupon to add" loading="lazy" /></div>
+          <figcaption class="appset__cap"><b>Product</b>Detail &amp; coupons</figcaption>
+        </figure>
+        <figure class="appset__card">
+          <div class="appset__shot"><img src="assets/img/selfshopping/selfshopping-checkout.png?v=1" alt="Checkout screen with payment methods" loading="lazy" /></div>
+          <figcaption class="appset__cap"><b>Checkout</b>Pay without queuing</figcaption>
+        </figure>
+        <figure class="appset__card">
+          <div class="appset__shot"><img src="assets/img/selfshopping/selfshopping-rewards.png?v=1" alt="Loyalty rewards screen" loading="lazy" /></div>
+          <figcaption class="appset__cap"><b>Rewards</b>Loyalty in the same app</figcaption>
+        </figure>
       </div>
     </div>
 
-    <button class="proj-next" data-tab="ops" type="button">
-      <span class="proj-next__main"><span class="proj-next__k">Next project</span><span class="proj-next__t">03 — Tetra Pak DesignOps</span></span>
-      <span class="proj-next__arrow" aria-hidden="true">→</span>
-    </button>
   </section>
 
   <!-- ============ AWA (temporarily hidden — to restore, delete this line and the "END AWA hidden" line below, then uncomment the Awa tab button in the .tabs nav above) ============
@@ -858,6 +807,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=26"></script>
+<script src="assets/js/main.js?v=28"></script>
 </body>
 </html>

@@ -127,13 +127,9 @@ function startHero(animate) {
     }
   }
 
-  // Switching from the rail happens in place (like the Awa phase nav);
-  // the "Next project" button advances and scrolls to the top of the case.
+  // Switching from the rail happens in place (like the Awa phase nav).
   items.forEach(function (it) {
     it.addEventListener('click', function () { activate(it.getAttribute('data-tab'), false); });
-  });
-  document.querySelectorAll('.proj-next').forEach(function (b) {
-    b.addEventListener('click', function () { activate(b.getAttribute('data-tab'), true); });
   });
 
   // Activate the project from the URL hash, or default to the first so the page
@@ -397,6 +393,36 @@ function startHero(animate) {
         b.setAttribute('aria-pressed', 'true');
         if (read) read.textContent = b.getAttribute('data-text');
       });
+    });
+  });
+})();
+
+/* ---- Image viewer: thumbnail rail swaps the large framed image. ---- */
+(function imgViewers() {
+  document.querySelectorAll('.imgviewer').forEach(function (root) {
+    var thumbs = [].slice.call(root.querySelectorAll('.imgviewer__thumb'));
+    var main = root.querySelector('.imgviewer__main img');
+    var cap = root.querySelector('.imgviewer__cap');
+    var count = root.querySelector('.imgviewer__count');
+    if (!thumbs.length || !main) return;
+    var total = thumbs.length;
+    var pad2 = function (n) { return ('0' + n).slice(-2); };
+    function show(i) {
+      var t = thumbs[i];
+      thumbs.forEach(function (x, k) {
+        x.classList.toggle('is-on', k === i);
+        x.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      });
+      main.src = t.getAttribute('data-src');
+      main.alt = t.getAttribute('data-cap') || '';
+      if (cap) cap.textContent = t.getAttribute('data-cap') || '';
+      if (count) count.textContent = pad2(i + 1) + ' / ' + pad2(total);
+    }
+    thumbs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
+    root.addEventListener('keydown', function (e) {
+      var cur = thumbs.findIndex(function (x) { return x.classList.contains('is-on'); });
+      if (e.key === 'ArrowRight') { show((cur + 1) % total); }
+      else if (e.key === 'ArrowLeft') { show((cur - 1 + total) % total); }
     });
   });
 })();
