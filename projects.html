@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — Teresa Alaniz</title>
+<meta name="description" content="Selected work in design systems, UX, design operations, and product concepts." />
+<link rel="stylesheet" href="assets/css/style.css?v=92" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><span class="brand__full">Teresa Alaniz</span><span class="brand__short" aria-hidden="true">TA</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="projects.html" class="is-active">Projects</a>
+      <a href="awa.html">Awa</a>
+      <a href="https://www.linkedin.com/in/teresa-alaniz" target="_blank" rel="noopener">Linkedin</a>
+      <a href="mailto:t.alaniz.design@gmail.com">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<main class="projects-main container">
+
+  <nav class="tabs" aria-label="Projects">
+    <button class="tab" data-tab="ds" type="button">Design System</button>
+    <button class="tab" data-tab="ux" type="button">UX strategy</button>
+    <button class="tab" data-tab="ops" type="button">Design Ops</button>
+    <button class="tab" data-tab="shop" type="button">Self-shopping app</button>
+    <!-- Awa project temporarily hidden — to restore, uncomment this tab button and the #panel-awa section below.
+    <button class="tab" data-tab="awa" type="button">Awa</button>
+    -->
+  </nav>
+
+  <!-- ============ DESIGN SYSTEMS ============ -->
+  <section class="panel" id="panel-ds">
+    <h1 class="case__title">One design system for Tetra Pak’s product portfolio</h1>
+
+    <!-- ===== Hero: In short (left) + Impact images (right) ===== -->
+    <div class="case-hero">
+      <div class="case-hero__text">
+        <h2 class="h-sec">In short</h2>
+        <div class="prose">
+          <p><strong>The Context</strong><br />Four external teams were designing Tetra Pak’s products in isolation, leading to a disjointed user experience, un-reusable design assets, and mounting technical debt.</p>
+          <p><strong>The Strategy</strong><br />I pitched and co-led a centralized design system initiative over four years. Collaborating with the Lead UX Researcher, we aligned all four external teams under a unified governance structure and shared UI standards.</p>
+          <p><strong>The Impact</strong><br />The design system now forms the UI foundation of <a href="https://www.tetrapak.com/solutions/automation/tetra-pak-factory-os" target="_blank" rel="noopener">Tetra Pak® Factory OS™</a>—scaling across five products and 31 user types.</p>
+        </div>
+      </div>
+
+      <div class="case-hero__media">
+        <h2 class="h-sec">Impact</h2>
+        <div class="dsi-impact" id="dsImpactGallery">
+          <div class="dsi-tabs" role="tablist" aria-label="Impact dimensions">
+            <button class="dsi-tab is-on" type="button" role="tab" aria-selected="true" data-i="0">Time to market</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="1">Operational efficiency</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="2">Adoption</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="3">Scalability</button>
+          </div>
+
+          <div class="dsi-stage">
+            <!-- Slide 1 — time to market -->
+            <div class="dsi-slide is-active" data-i="0" data-cap="Features ship sooner">
+              <div class="dsi-slide__hero">
+                <p class="dsi__eyebrow">Brief → developer-ready</p>
+                <span class="dsi-hero__num">~80%</span>
+                <p class="dsi-hero__label">Faster from brief to developer-ready design</p>
+              </div>
+              <div class="dsi-slide__body">
+                <p class="dsi__claim">Decisions are made once and documented, so <strong>designers build on them instead of debating them again.</strong></p>
+                <div class="dsi-switch" role="group" aria-label="Brief to developer-ready design">
+                  <button class="dsi-switch__btn" type="button" aria-pressed="false" data-val="~1 week">Before the system</button>
+                  <button class="dsi-switch__btn" type="button" aria-pressed="true" data-val="under 1 day">With the system</button>
+                </div>
+                <p class="dsi-read" aria-live="polite"><span class="dsi-read__t">under 1 day</span> from brief to developer-ready design</p>
+              </div>
+            </div>
+
+            <!-- Slide 2 — operational efficiency -->
+            <div class="dsi-slide" data-i="1" data-cap="Fewer fixes, lower cost">
+              <div class="dsi-slide__hero">
+                <p class="dsi__eyebrow">Rounds of fixes</p>
+                <span class="dsi-hero__num">67%</span>
+                <p class="dsi-hero__label">Fewer rounds of fixes between design and development</p>
+              </div>
+              <div class="dsi-slide__body">
+                <p class="dsi__claim">Every component is designed once and reused across products, so <strong>Tetra Pak stops paying to design, fix and rebuild the same UI.</strong></p>
+                <div class="dsi-switch" role="group" aria-label="Rounds of fixes between design and development">
+                  <button class="dsi-switch__btn" type="button" aria-pressed="false" data-val="3+ rounds">Before the system</button>
+                  <button class="dsi-switch__btn" type="button" aria-pressed="true" data-val="1 round">With the system</button>
+                </div>
+                <p class="dsi-read" aria-live="polite"><span class="dsi-read__t">1 round</span> of fixes between design and development</p>
+                <div class="dsi-found">
+                  <p class="dsi-found__k">The reusable foundation</p>
+                  <div class="dsi-found__row">
+                    <span class="dsi-chip">Documented components</span>
+                    <span class="dsi-chip">Design tokens</span>
+                    <span class="dsi-chip">Developer handoff process</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 — adoption -->
+            <div class="dsi-slide" data-i="2" data-cap="Used every day, across teams">
+              <div class="dsi-slide__hero">
+                <p class="dsi__eyebrow">Inserts in one week</p>
+                <span class="dsi-hero__num">4.7k</span>
+                <p class="dsi-hero__label">Component inserts in one week</p>
+              </div>
+              <div class="dsi-slide__body">
+                <p class="dsi__claim">Teams across the product family build with the design system every day. <strong>Each insert is a component reused instead of designed again.</strong></p>
+                <div class="dsi-stat">
+                  <span class="dsi-stat__num">33 <span class="dsi-tile__of">of ~45</span></span>
+                  <span class="dsi-tile__meter"><span style="width:73%"></span></span>
+                  <span class="dsi-tile__label">Figma team workspaces using the core library (total is an estimate)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 — scalability -->
+            <div class="dsi-slide" data-i="3" data-cap="Scales without starting over">
+              <div class="dsi-slide__hero">
+                <p class="dsi__eyebrow">User types served</p>
+                <span class="dsi-hero__num">31</span>
+                <p class="dsi-hero__label">User types served across the ecosystem</p>
+              </div>
+              <div class="dsi-slide__body">
+                <p class="dsi__claim">The design system now forms the <strong>UI foundation of the Tetra Pak® Factory OS™</strong> ecosystem: proof that it scales beyond the products it was built for.</p>
+                <div class="dsi-plats" role="group" aria-label="Platforms built on the design system">
+                  <button class="dsi-plat" type="button" aria-pressed="true" data-role="Material preparation and traceability">Mobile</button>
+                  <button class="dsi-plat" type="button" aria-pressed="false" data-role="Real-time production and quality insights">Web</button>
+                  <button class="dsi-plat" type="button" aria-pressed="false" data-role="Smart screens controlling factory machines">HMI</button>
+                </div>
+                <p class="dsi-scale__role" aria-live="polite">Material preparation and traceability</p>
+                <p class="dsi-scale__validation"><strong>Tetra Pak® Factory OS™</strong> — built on the design system</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="dsi-foot">
+            <span class="dsi-foot__cap" aria-live="polite">Features ship sooner</span>
+            <span class="dsi-foot__dots">
+              <button class="dsi-dot is-on" type="button" aria-label="Show Time to market"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Operational efficiency"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Adoption"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Scalability"></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role">
+      <h2 class="h-sec">What I actually did</h2>
+      <p class="prose role__lead">My job was split between high-level alignment and deep hands-on.</p>
+      <div class="did-grid">
+        <article class="did-card">
+          <span class="did-card__num">01</span>
+          <span class="did-card__kicker">High-level alignment</span>
+          <h3 class="did-card__title">Governing the Ecosystem</h3>
+          <p>I worked with Tetra Pak stakeholders to understand their operating needs at the time and how they wanted their products to evolve. I managed friction between the external design teams and set up operating rules so everyone could design together consistently.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">02</span>
+          <span class="did-card__kicker">Deep hands-on</span>
+          <h3 class="did-card__title">Building inside Figma &amp; Confluence</h3>
+          <p>I created components, mapped semantics across products, including colour for interactive states, and ran workshops with Tetra Pak stakeholders. I audited how efficiently teams were using their tools and which assets were worth creating for Tetra Pak's context. I built the documentation first in Figma, then designed the information architecture to move it into Confluence.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">03</span>
+          <span class="did-card__kicker">Innovation</span>
+          <h3 class="did-card__title">Leading AI adoption</h3>
+          <p>I introduced AI into the DS workflow and expanded its role as the tools matured, from speeding up documentation, to creating communication assets, to analysing research data for new patterns such as dashboard guidelines for developers.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="case-grid">
+      <div class="col-3 card card--interactive">
+        <h2 class="h-sec">The Evolution of the Design System</h2>
+        <div class="timeline">
+          <div class="timeline__row"><span class="timeline__year">2023</span><span class="timeline__label">Foundations &amp; Creation</span><span class="timeline__desc">Translated Tetra Pak's brand design principles into foundations and core components, and structured the design system to cover mobile, touchscreen, and web products.</span></div>
+          <div class="timeline__row"><span class="timeline__year">2024</span><span class="timeline__label">Adoption &amp; Rollout</span><span class="timeline__desc">Co-created with the external design teams, making key decisions jointly with Tetra Pak's Lead UX Researcher, including DS communication.</span></div>
+          <div class="timeline__row"><span class="timeline__year">2025</span><span class="timeline__label">Systematic Evolution</span><span class="timeline__desc">Used change-request data from product teams, together with Figma's new capabilities, to evolve the system, including integrating variables across the full DS.</span></div>
+          <div class="timeline__row"><span class="timeline__year">2026</span><span class="timeline__label">Advanced Extension</span><span class="timeline__desc">Began extending the system to dark mode, covering both Tetra Pak's functional and aspirational products.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Gallery ===== -->
+    <div class="gallery" id="dsGallery">
+      <h2 class="process__title">A look at the system</h2>
+      <div class="gallery__stage">
+        <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous image">‹</button>
+
+        <div class="gallery__track" id="dsTrack">
+          <figure class="gallery__slide is-active">
+            <img src="assets/img/design-system/01-hero.png?v=4" alt="Design system hero — built to manage the complexity of functional products" loading="lazy" />
+            <figcaption class="gallery__caption">System overview</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/design-system/02-modular-architecture.png?v=4" alt="Modular architecture of the design system" loading="lazy" />
+            <figcaption class="gallery__caption">Modular architecture</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/design-system/03-core-libraries.png?v=4" alt="Core libraries of the design system" loading="lazy" />
+            <figcaption class="gallery__caption">Core libraries</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/design-system/04-ecosystem.png?v=4" alt="Bricks core libraries feeding product libraries and design files across the ecosystem" loading="lazy" />
+            <figcaption class="gallery__caption">Ecosystem</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/design-system/05-reusable-ui.png?v=4" alt="Reusable UI components of the design system" loading="lazy" />
+            <figcaption class="gallery__caption">Reusable UI</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/design-system/06-design-for-function.png?v=4" alt="Design for function, built to scale" loading="lazy" />
+            <figcaption class="gallery__caption">Design for function, built to scale</figcaption>
+          </figure>
+        </div>
+
+        <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next image">›</button>
+      </div>
+
+      <div class="gallery__footer">
+        <div class="gallery__dots" id="dsDots" role="tablist" aria-label="Gallery navigation"></div>
+        <span class="gallery__counter" id="dsCounter">1 / 6</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ UX ============ -->
+  <section class="panel" id="panel-ux">
+    <h1 class="case__title">Designing an industrial platform - Red Dot: Best of the Best 2024</h1>
+
+    <!-- ===== Hero: In short (left) + Impact images (right) ===== -->
+    <div class="case-hero">
+      <div class="case-hero__text">
+        <h2 class="h-sec">In short</h2>
+        <div class="prose">
+          <p><strong>The Context</strong><br />IMS Technologies was launching a new line of complex, data-driven converting machinery. Unclear interfaces on this scale directly impact operational efficiency, causing production downtime and costly operator errors.</p>
+          <p><strong>The Strategy</strong><br />Leading six designers alongside internal teams, I directed the project from field research to handoff. We conducted on-site operator research in Italy and China to build a single, scalable HMI concept for the entire machinery line.</p>
+          <p><strong>The Impact</strong><br />The system is now in active production across IMS’s new machinery line. The project redefined industrial human-machine interaction and was internationally recognized with the <a href="https://www.red-dot.org/project/ims-technologies-new-hmi-generation-72251" target="_blank" rel="noopener">Red Dot: Best of the Best 2024 Award</a>.</p>
+        </div>
+      </div>
+
+      <div class="case-hero__media">
+        <h2 class="h-sec">Impact</h2>
+        <div class="dsi-impact dsi-impact--full" id="imsImpactGallery">
+          <div class="dsi-tabs" role="tablist" aria-label="Impact dimensions">
+            <button class="dsi-tab is-on" type="button" role="tab" aria-selected="true" data-i="0">Machine operations</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="1">Scalability</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="2">Market position</button>
+          </div>
+
+          <div class="dsi-stage">
+              <!-- Machine operations -->
+              <div class="dsi-slide is-active" data-i="0" data-cap="Minimising costly disruption">
+                <div class="ims">
+                  <p class="dsi__eyebrow">Machine operations</p>
+                  <p class="dsi__claim">Operators and technicians can follow every stage of the machine’s work in real time, so <strong>problems are spotted and handled sooner.</strong></p>
+                  <figure class="ims-quote">
+                    <blockquote>“It allows us to monitor the various stages of machine operation and intervene quickly when needed.”</blockquote>
+                    <figcaption><b>Fabio Cantamessa</b><span>Automation Manager, IMS Technologies</span></figcaption>
+                  </figure>
+                  <div class="ims-makes">
+                    <p class="dsi-found__k">What makes it possible</p>
+                    <div class="dsi-found__row">
+                      <span class="dsi-chip">Real-time machine feedback</span>
+                      <span class="dsi-chip">Cutting station control</span>
+                      <span class="dsi-chip">Sensor graphs for diagnostics</span>
+                    </div>
+                  </div>
+                  <div class="dsi-switch" role="group" aria-label="Before and outcome">
+                    <button class="dsi-switch__btn" type="button" aria-pressed="false" data-text="A new generation of complex, data-driven machines. On heavy equipment, an unclear screen can lead to operator errors and lost production time.">Before</button>
+                    <button class="dsi-switch__btn" type="button" aria-pressed="true" data-text="Production and maintenance teams act on problems sooner, protecting machine uptime.">Outcome</button>
+                  </div>
+                  <p class="ims-read" aria-live="polite">Production and maintenance teams act on problems sooner, protecting machine uptime.</p>
+                </div>
+              </div>
+
+              <!-- Scalability -->
+              <div class="dsi-slide" data-i="1" data-cap="Reducing development effort">
+                <div class="ims">
+                  <p class="dsi__eyebrow">Scalability</p>
+                  <p class="dsi__claim">The interface was designed as a scalable system for the new machine generation, so <strong>IMS doesn’t redesign it machine by machine.</strong></p>
+                  <div class="ims-flow">
+                    <div class="ims-flow__card">
+                      <span class="ims-flow__k">Field research</span>
+                      <span class="ims-flow__n">2</span>
+                      <span class="ims-flow__l">countries of on-site research with operators — Italy and China</span>
+                    </div>
+                    <span class="ims-flow__arrow" aria-hidden="true">→</span>
+                    <div class="ims-flow__card ims-flow__card--dark">
+                      <span class="ims-flow__k">One interface system</span>
+                      <span class="ims-sys-item">Customisable dashboard</span>
+                      <span class="ims-sys-item">Shared design principles</span>
+                      <span class="ims-sys-item">Custom icon set</span>
+                    </div>
+                    <span class="ims-flow__arrow" aria-hidden="true">→</span>
+                    <div class="ims-flow__card ims-flow__targets">
+                      <span class="ims-target ims-target--now">New machine generation <em>In production</em></span>
+                      <span class="ims-target">Next machine</span>
+                      <span class="ims-target">Future machines</span>
+                    </div>
+                  </div>
+                  <div class="dsi-switch" role="group" aria-label="Before and outcome">
+                    <button class="dsi-switch__btn" type="button" aria-pressed="false" data-text="Each new, more complex machine raised the same question: how do operators learn and use it quickly?">Before</button>
+                    <button class="dsi-switch__btn" type="button" aria-pressed="true" data-text="A research-based foundation IMS can carry across its machines, designed to cut learning and task time.">Outcome</button>
+                  </div>
+                  <p class="ims-read" aria-live="polite">A research-based foundation IMS can carry across its machines, designed to cut learning and task time.</p>
+                </div>
+              </div>
+
+              <!-- Market position -->
+              <div class="dsi-slide" data-i="2" data-cap="Raising product perception">
+                <div class="ims">
+                  <p class="dsi__eyebrow">Market position</p>
+                  <p class="dsi__claim">The interface became part of what makes IMS’s new machine generation a premium product, <strong>with independent recognition to prove it.</strong></p>
+                  <div class="ims-award">
+                    <div>
+                      <span class="ims-award__k">Red Dot Award 2024</span>
+                      <span class="ims-award__big">Best of<br />the Best</span>
+                    </div>
+                    <div class="ims-award__pts">
+                      <div class="ims-award__pt"><b>Highest award in its category</b><span>Interaction, UI &amp; User Experience</span></div>
+                      <div class="ims-award__pt"><b>Judged independently</b><span>External proof of the interface’s quality</span></div>
+                    </div>
+                  </div>
+                  <p class="ims-designlang"><b>One design language</b> — shared principles and custom icons, so every screen looks and feels like an IMS machine.</p>
+                  <div class="dsi-switch" role="group" aria-label="Before and outcome">
+                    <button class="dsi-switch__btn" type="button" aria-pressed="false" data-text="Product perception and brand were explicit goals: the interface had to match the quality of the machines.">Before</button>
+                    <button class="dsi-switch__btn" type="button" aria-pressed="true" data-text="IMS presents its new machines to the market with an interface recognised as best in class.">Outcome</button>
+                  </div>
+                  <p class="ims-read" aria-live="polite">IMS presents its new machines to the market with an interface recognised as best in class.</p>
+                </div>
+              </div>
+          </div>
+
+          <div class="dsi-foot">
+            <span class="dsi-foot__cap" aria-live="polite">Minimising costly disruption</span>
+            <span class="dsi-foot__dots">
+              <button class="dsi-dot is-on" type="button" aria-label="Show Machine operations"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Scalability"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Market position"></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role">
+      <h2 class="h-sec">My role</h2>
+      <div class="did-grid did-grid--2">
+        <article class="did-card">
+          <span class="did-card__num">01</span>
+          <h3 class="did-card__title">Team leadership</h3>
+          <p>Led a team of six designers, working with IMS's design and marketing teams, from research through design handoff to development.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">02</span>
+          <h3 class="did-card__title">International research</h3>
+          <p>Directed international user research, including on-site studies with clients in China.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">03</span>
+          <h3 class="did-card__title">Product direction</h3>
+          <p>Co-defined product features and shaped the concept direction to align user needs with business goals.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">04</span>
+          <h3 class="did-card__title">Balanced decisions</h3>
+          <p>Ensured design decisions balanced user insight, technical feasibility, and strategic priorities.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="case-grid">
+      <div class="col-3 card card--interactive">
+        <h2 class="h-sec">My approach</h2>
+        <div class="steps">
+          <div class="steps__row"><span class="steps__num">01</span><span class="steps__label">Discovery</span><span class="steps__desc">Field user research in Italy and China, plus interviews with company stakeholders.</span></div>
+          <div class="steps__row"><span class="steps__num">02</span><span class="steps__label">Product Concept</span><span class="steps__desc">Defined the vision and key features: cutting station management, real-time feedback, a customisable dashboard, and sensor graphs.</span></div>
+          <div class="steps__row"><span class="steps__num">03</span><span class="steps__label">Product Design</span><span class="steps__desc">Co-designed wireframes, flows, final screens, and custom icons with IMS's team, aiming to cut learning and task time.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-embed">
+      <iframe
+        src="https://www.youtube.com/embed/KwEBdE0EuPQ"
+        title="Red Dot Best of the Best 2024 — HMI concept video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- ============ DESIGN OPS ============ -->
+  <section class="panel" id="panel-ops">
+    <h1 class="case__title">Design Ops for Complex Product Ecosystem</h1>
+    <p class="case__subtitle">Design ops is how design works across product teams: it makes room to explore new ways of working, while protecting delivery and cost.</p>
+
+    <!-- ===== Hero: In short (left) + Impact images (right) ===== -->
+    <div class="case-hero">
+      <div class="case-hero__text">
+        <h2 class="h-sec">In short</h2>
+        <div class="prose">
+          <p><strong>The Context</strong><br />More than 15 designers, in several external teams, were designing five Tetra Pak products in silos. Each team worked its own way, nothing was documented in one place, and no one had a full view of where each product stood.</p>
+          <p><strong>What I did</strong><br />I saw that the design system would only be sustainable if the way teams worked around it changed too. As Design Director, I defined and rolled out one operating model: a standard handoff from design to development, one shared Figma environment, and a contribution model for every change.</p>
+          <p><strong>The Impact</strong><br />Teams changed without the work starting over. Every product’s design status became visible in one place. And because every component request went through one check, the cost of teams building in silos became visible and controllable: in 2025, 16% of requests were solved without building anything new.</p>
+        </div>
+      </div>
+
+      <div class="case-hero__media">
+        <h2 class="h-sec">Impact</h2>
+        <div class="dsi-impact dsi-impact--full" id="opsGallery">
+          <div class="dsi-tabs" role="tablist" aria-label="Impact dimensions">
+            <button class="dsi-tab is-on" type="button" role="tab" aria-selected="true" data-i="0">Predictable delivery</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="1">Contribution model</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="2">Preventing sprawl</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="3">Resilient to change</button>
+          </div>
+
+          <div class="dsi-stage">
+            <!-- Predictable delivery -->
+            <div class="dsi-slide is-active" data-i="0" data-cap="Making design delivery predictable">
+              <div class="ops">
+                <p class="dsi__eyebrow">Design delivery across the portfolio</p>
+                <div class="ops-funnel">
+                  <div class="ops-funnel__row"><span class="ops-funnel__n">15+</span><span class="ops-funnel__l">designers</span></div>
+                  <div class="ops-funnel__row"><span class="ops-funnel__n">5</span><span class="ops-funnel__l">products</span></div>
+                  <div class="ops-funnel__row ops-funnel__row--end"><span class="ops-funnel__n">1</span><span class="ops-funnel__l">operating model</span></div>
+                </div>
+                <div class="dsi-switch" role="group" aria-label="Before and after one operating model">
+                  <button class="dsi-switch__btn" type="button" aria-pressed="false" data-text="Each design team made its own decisions, some with Tetra Pak’s Lead UX Researcher and some without.">Before</button>
+                  <button class="dsi-switch__btn" type="button" aria-pressed="true" data-text="Tetra Pak can plan, prioritise and spot risks early, because design work across every product is visible and documented in one place.">With one model</button>
+                </div>
+                <p class="ops-note" aria-live="polite">Tetra Pak can plan, prioritise and spot risks early, because design work across every product is visible and documented in one place.</p>
+              </div>
+            </div>
+
+            <!-- Contribution model -->
+            <div class="dsi-slide" data-i="1" data-cap="One centralised contribution model">
+              <div class="ops ops-cycle">
+                <p class="dsi__eyebrow">The contribution model</p>
+                <p class="dsi__claim">The product suite stays consistent under one brand, and <strong>no single team’s decision can change the whole suite.</strong></p>
+                <p class="ops-cycle__hub">↻ Every change runs through the <b>Design system team</b></p>
+                <div class="ops-cycle__steps" role="group" aria-label="Contribution steps">
+                  <button class="ops-step" type="button" aria-pressed="true" data-detail="A product team asks for a new component or a change."><span class="ops-step__n">01</span><span class="ops-step__t">Change request</span></button>
+                  <button class="ops-step" type="button" aria-pressed="false" data-detail="Checked against the system, product needs and design principles. <strong>If a solution already exists, the team is guided to it.</strong>"><span class="ops-step__n">02</span><span class="ops-step__t">Evaluation</span></button>
+                  <button class="ops-step" type="button" aria-pressed="false" data-detail="The design system team makes a proposal, tests it with the product team and refines it."><span class="ops-step__n">03</span><span class="ops-step__t">Propose, test, refine</span></button>
+                  <button class="ops-step" type="button" aria-pressed="false" data-detail="Built into the core library(s) with its tokens."><span class="ops-step__n">04</span><span class="ops-step__t">Implementation</span></button>
+                  <button class="ops-step" type="button" aria-pressed="false" data-detail="Released, with usage documented for every team."><span class="ops-step__n">05</span><span class="ops-step__t">Documentation</span></button>
+                </div>
+                <p class="ops-cycle__detail" aria-live="polite">A product team asks for a new component or a change.</p>
+              </div>
+            </div>
+
+            <!-- Preventing sprawl -->
+            <div class="dsi-slide" data-i="2" data-cap="Preventing component sprawl">
+              <div class="ops ops-sprawl">
+                <div>
+                  <p class="dsi__eyebrow" style="margin-bottom:0.9rem">Reuse-first contribution</p>
+                  <p class="ops-sprawl__period">2023 – June 2026</p>
+                  <p class="ops-sprawl__big">21%</p>
+                  <p class="ops-sprawl__sub">of 204 requests needed nothing new</p>
+                  <p class="ops-sprawl__note">Nothing new to design, build, document or maintain. Teams were guided to the existing solution.</p>
+                </div>
+                <div class="ops-donutwrap">
+                  <div class="ops-donut" aria-hidden="true"></div>
+                  <div class="ops-legend" role="group" aria-label="What happened to the 204 requests">
+                    <button class="ops-leg ops-leg--reused" type="button" aria-pressed="true" data-detail="Nothing new was built — teams were guided to the existing solution.">21% reused</button>
+                    <button class="ops-leg" type="button" aria-pressed="false" data-detail="Product feedback shaped how the design system grew, keeping it aligned with real product needs.">79% evolved with product</button>
+                  </div>
+                </div>
+                <p class="ops-sprawl__detail" aria-live="polite">Nothing new was built — teams were guided to the existing solution.</p>
+              </div>
+            </div>
+
+            <!-- Resilient to change -->
+            <div class="dsi-slide" data-i="3" data-cap="Built to hold up through team changes">
+              <div class="ops ops-hub">
+                <p class="dsi__eyebrow">Resilient to team changes</p>
+                <p class="dsi__claim">Teams evolve over the life of the products. <strong>Because Tetra Pak holds the knowledge, the way of working and the assets, the model is resilient to change.</strong></p>
+                <div class="ops-hub__grid">
+                  <div class="ops-hub__teams" role="group" aria-label="Who is working on the products changes over time">
+                    <p class="ops-hub__teamk">Teams change…</p>
+                    <button class="ops-teamsel" type="button" aria-pressed="true" data-line="An established product team keeps building from the core.">An established team</button>
+                    <button class="ops-teamsel" type="button" aria-pressed="false" data-line="A new product team plugs into the core — nothing is rebuilt from scratch.">A new product team</button>
+                    <button class="ops-teamsel" type="button" aria-pressed="false" data-line="New people find the way of working, the assets and the knowledge already there.">New team members</button>
+                  </div>
+                  <div class="ops-hub__link" aria-hidden="true"><span class="ops-hub__arrow">→</span><span class="ops-hub__linklabel">connect to</span></div>
+                  <div class="ops-core">
+                    <p class="ops-core__k">The core — owned by</p>
+                    <p class="ops-core__owner">Tetra Pak</p>
+                    <div class="ops-core__item"><b>One way of working</b><span>From design to handoff</span></div>
+                    <div class="ops-core__item"><b>Assets</b><span>One shared Figma workspace</span></div>
+                    <div class="ops-core__item"><b>Knowledge</b><span>Decisions documented in one place</span></div>
+                  </div>
+                </div>
+                <p class="ops-hub__read" aria-live="polite"><strong>The core stays the same.</strong> <span class="ops-hub__readt">An established product team keeps building from the core.</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="dsi-foot">
+            <span class="dsi-foot__cap" aria-live="polite">Making design delivery predictable</span>
+            <span class="dsi-foot__dots">
+              <button class="dsi-dot is-on" type="button" aria-label="Show Predictable delivery"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Contribution model"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Preventing sprawl"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Resilient to change"></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role">
+      <h2 class="h-sec">My role</h2>
+      <div class="did-grid did-grid--2">
+        <article class="did-card">
+          <span class="did-card__num">01</span>
+          <h3 class="did-card__title">Rollout leadership</h3>
+          <p>As Design Director, I led the rollout of Design Operations across teams and products, partnering with design leadership, product owners, engineers, and external design teams to align on operating principles, roles, and delivery practices.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">02</span>
+          <h3 class="did-card__title">Scalable collaboration</h3>
+          <p>My focus was on building a scalable model that enabled effective collaboration across product teams, rather than relying on product-by-product coordination.</p>
+        </article>
+      </div>
+
+      <div class="case-grid role__approach">
+        <div class="col-3 card card--interactive">
+          <h2 class="h-sec">The approach</h2>
+          <div class="steps">
+            <div class="steps__row"><span class="steps__num">01</span><span class="steps__label">Discovery</span><span class="steps__desc">Mapped independent team workflows to surface fragmentation points and shared patterns of work across products.</span></div>
+            <div class="steps__row"><span class="steps__num">02</span><span class="steps__label">Framework</span><span class="steps__desc">Co-defined a shared Design Operations framework covering roles, responsibilities, decision-making, and collaboration models.</span></div>
+            <div class="steps__row"><span class="steps__num">03</span><span class="steps__label">Workflows</span><span class="steps__desc">Established common workflows and rituals to align design, product, and engineering without introducing unnecessary bureaucracy.</span></div>
+            <div class="steps__row"><span class="steps__num">04</span><span class="steps__label">Standards</span><span class="steps__desc">Introduced shared principles and standards to support coherence across products, while allowing teams to adapt locally.</span></div>
+            <div class="steps__row"><span class="steps__num">05</span><span class="steps__label">Adoption</span><span class="steps__desc">Embedded these practices into day-to-day delivery to ensure adoption and long-term sustainability.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELF-SHOPPING (DATALOGIC) ============ -->
+  <section class="panel" id="panel-shop">
+    <h1 class="case__title">Scan, pay and go: a self-shopping app for supermarkets</h1>
+
+    <!-- ===== Hero: In short + Impact (built in code) ===== -->
+    <div class="case-hero">
+      <div class="case-hero__text">
+        <h2 class="h-sec">In short</h2>
+        <div class="prose">
+          <p><strong>The Context</strong><br />Datalogic wanted to bring self-shopping to shoppers’ own smartphones: scan products while shopping, see the running total and offers, and skip the checkout queue. It was a new product idea, with one month to design it and no user data to start from.</p>
+          <p><strong>The Strategy</strong><br />With no user data, we went to the store. The team used competitors’ self-shopping solutions in supermarkets and went through the whole shopping trip, then combined what we saw with Datalogic’s technical features into one product intelligence base. Product managers and developers were involved from the start.</p>
+          <p><strong>The Impact</strong><br />In four weeks we delivered the information architecture, pixel-perfect screens, an interactive prototype and a developer handoff that was feasible to build and met business needs. The app shipped and is now part of Datalogic’s retail product portfolio.</p>
+        </div>
+      </div>
+
+      <div class="case-hero__media">
+        <h2 class="h-sec">Impact</h2>
+        <div class="dsi-impact dsi-impact--full" id="shopImpactGallery">
+          <div class="dsi-tabs" role="tablist" aria-label="Impact dimensions">
+            <button class="dsi-tab is-on" type="button" role="tab" aria-selected="true" data-i="0">From data gap to insight</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="1">Ready in four weeks</button>
+            <button class="dsi-tab" type="button" role="tab" aria-selected="false" data-i="2">Shipped</button>
+          </div>
+
+          <div class="dsi-stage">
+              <!-- From data gap to insight -->
+              <div class="dsi-slide is-active" data-i="0" data-cap="From no user data to product insights">
+                <div class="ssi ssi-map is-complete">
+                  <div class="ssi-map__inputs">
+                    <button class="ssi-io is-on" type="button" aria-pressed="true">
+                      <span class="ssi-io__t">Field research in supermarkets</span>
+                      <span class="ssi-io__d">Competitors’ self-shopping solutions, used as real shoppers, and the whole shopping trip from entering the store to leaving.</span>
+                    </button>
+                    <button class="ssi-io is-on" type="button" aria-pressed="true">
+                      <span class="ssi-io__t">Datalogic’s technical features</span>
+                      <span class="ssi-io__d">What the product could do: scanning, running totals, offers, payment and loyalty.</span>
+                    </button>
+                  </div>
+                  <div class="ssi-map__links" aria-hidden="true"><span></span><span></span></div>
+                  <div class="ssi-map__out">
+                    <span class="ssi-out__t">Product intelligence</span>
+                    <span class="ssi-out__d">What shoppers need at each step of the trip, and which feature answers it.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ready in four weeks -->
+              <div class="dsi-slide" data-i="1" data-cap="Ready to build in four weeks">
+                <div class="ssi ssi-track">
+                  <span class="ssi-track__scale">About 1 month</span>
+                  <div class="ssi-track__rail">
+                    <div class="ssi-track__steps" role="group" aria-label="Project steps">
+                      <button class="ssi-step is-done" type="button" aria-pressed="false" data-line="Field research in supermarkets.">Discovery</button>
+                      <button class="ssi-step is-done" type="button" aria-pressed="false" data-line="Research and technical features combined.">Product intelligence</button>
+                      <button class="ssi-step is-done" type="button" aria-pressed="false" data-line="The app structured around the shopping trip.">Information architecture</button>
+                      <button class="ssi-step is-done" type="button" aria-pressed="false" data-line="Pixel-perfect screens and an interactive prototype.">UI design and prototype</button>
+                      <button class="ssi-step is-done" type="button" aria-pressed="true" data-line="Checked with product managers and developers: feasible to build and meeting business needs.">Handoff</button>
+                    </div>
+                    <div class="ssi-track__bar"><span class="ssi-track__fill" style="width:100%"></span></div>
+                  </div>
+                  <p class="ssi-track__line" aria-live="polite">Checked with product managers and developers: feasible to build and meeting business needs.</p>
+                  <p class="ssi-track__marker">Product managers and developers involved throughout</p>
+                </div>
+              </div>
+
+              <!-- Shipped -->
+              <div class="dsi-slide" data-i="2" data-cap="Shipped as part of Datalogic’s portfolio">
+                <div class="ssi ssi-trip">
+                  <div class="ssi-trip__stops" role="group" aria-label="The shopping trip">
+                    <button class="ssi-stop" type="button" aria-pressed="false" data-title="Shopping list" data-line="Plan the trip before entering the store.">Before the store</button>
+                    <button class="ssi-stop" type="button" aria-pressed="true" data-title="Scan and cart" data-line="Scan products as you shop, with a live item count and running total.">While shopping</button>
+                    <button class="ssi-stop" type="button" aria-pressed="false" data-title="Discounts applied" data-line="Prices shown with all discounts and coupons applied.">Checking prices</button>
+                    <button class="ssi-stop" type="button" aria-pressed="false" data-title="Checkout in the app" data-line="Pay with several payment methods, without queuing.">Paying</button>
+                    <button class="ssi-stop" type="button" aria-pressed="false" data-title="Rewards" data-line="Loyalty points and rewards in the same app.">After paying</button>
+                  </div>
+                  <div class="ssi-phone">
+                    <div class="ssi-phone__screen" aria-live="polite">
+                      <span class="ssi-phone__t">Scan and cart</span>
+                      <span class="ssi-phone__d">Scan products as you shop, with a live item count and running total.</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="ssi-ship">Shipped. The app is now part of Datalogic’s retail product portfolio.</p>
+              </div>
+          </div>
+
+          <div class="dsi-foot">
+            <span class="dsi-foot__cap" aria-live="polite">From no user data to product insights</span>
+            <span class="dsi-foot__dots">
+              <button class="dsi-dot is-on" type="button" aria-label="Show From data gap to insight"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Ready in four weeks"></button>
+              <button class="dsi-dot" type="button" aria-label="Show Shipped"></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role">
+      <h2 class="h-sec">My role</h2>
+      <div class="did-grid did-grid--2">
+        <article class="did-card">
+          <span class="did-card__num">01</span>
+          <h3 class="did-card__title">Team leadership</h3>
+          <p>I led a team of three, a design manager and two product designers, and set up how we would work within one month.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">02</span>
+          <h3 class="did-card__title">Field research</h3>
+          <p>I directed the team’s research in supermarkets, so the app was based on what shoppers actually do.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">03</span>
+          <h3 class="did-card__title">Product and engineering partnership</h3>
+          <p>I brought Datalogic’s product managers and developers in early. They reviewed the work during the month, not only at the end.</p>
+        </article>
+        <article class="did-card">
+          <span class="did-card__num">04</span>
+          <h3 class="did-card__title">Ready-to-build handoff</h3>
+          <p>I made sure the handoff matched what developers could build and what the business needed.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="case-grid">
+      <div class="col-3 card card--interactive">
+        <h2 class="h-sec">My approach</h2>
+        <div class="steps">
+          <div class="steps__row"><span class="steps__num">01</span><span class="steps__label">Discovery</span><span class="steps__desc">The team used competitors’ self-shopping solutions and went through the whole shopping trip in supermarkets, noting where it slowed down or got confusing.</span></div>
+          <div class="steps__row"><span class="steps__num">02</span><span class="steps__label">Product intelligence</span><span class="steps__desc">We combined what we saw with Datalogic’s technical features: what shoppers need at each step of the trip, and which feature answers it.</span></div>
+          <div class="steps__row"><span class="steps__num">03</span><span class="steps__label">Information architecture</span><span class="steps__desc">We structured the app around the shopping trip: shopping list, scan and cart, product detail, checkout and rewards.</span></div>
+          <div class="steps__row"><span class="steps__num">04</span><span class="steps__label">UI design and prototype</span><span class="steps__desc">We designed pixel-perfect screens and an interactive prototype of the main shopper flows.</span></div>
+          <div class="steps__row"><span class="steps__num">05</span><span class="steps__label">Handoff</span><span class="steps__desc">Product managers and developers checked the work along the way, so the handoff was feasible to build and met business needs.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== A look at the app ===== -->
+    <div class="gallery" id="shopGallery">
+      <h2 class="process__title">A look at the app</h2>
+      <div class="gallery__stage">
+        <button class="gallery__nav gallery__nav--prev" type="button" aria-label="Previous image">‹</button>
+
+        <div class="gallery__track">
+          <figure class="gallery__slide is-active">
+            <img src="assets/img/selfshopping/selfshopping-cart.png?v=1" alt="Cart screen with scanned products, item count and running total" loading="lazy" />
+            <figcaption class="gallery__caption">Scan and cart: live total with discounts applied</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/selfshopping/selfshopping-product.png?v=1" alt="Product detail screen with a coupon to add" loading="lazy" />
+            <figcaption class="gallery__caption">Product detail and coupons</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/selfshopping/selfshopping-checkout.png?v=1" alt="Checkout screen with payment methods" loading="lazy" />
+            <figcaption class="gallery__caption">Checkout without queuing</figcaption>
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/img/selfshopping/selfshopping-rewards.png?v=1" alt="Loyalty rewards screen" loading="lazy" />
+            <figcaption class="gallery__caption">Loyalty rewards</figcaption>
+          </figure>
+        </div>
+
+        <button class="gallery__nav gallery__nav--next" type="button" aria-label="Next image">›</button>
+      </div>
+
+      <div class="gallery__footer">
+        <div class="gallery__dots" role="tablist" aria-label="Gallery navigation"></div>
+        <span class="gallery__counter">1 / 4</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ AWA (temporarily hidden — to restore, delete this line and the "END AWA hidden" line below, then uncomment the Awa tab button in the .tabs nav above) ============
+  <section class="panel" id="panel-awa">
+    <h1 class="case__title">An emotional inventory for the digital products you use</h1>
+    <p class="case__note">Awa is a self-initiated product concept building on my published research, <em>Emotion-Driven Innovation</em> (Springer, 2024). The prototype shown is exploratory and represents work in progress. Awa — including its concept, name, and design — is the intellectual property of Teresa Alaniz. © 2026 Teresa Alaniz. All rights reserved.</p>
+
+    <div class="awa-grid">
+      <div class="awa-proto">
+        <div class="awa-embed">
+          <iframe
+            title="Awa — interactive prototype"
+            src="https://embed.figma.com/proto/VWrh9MuKJNcPaTi6mRbFwv/Felt---Building-the-real-product?node-id=133-3172&scaling=scale-down&content-scaling=fixed&starting-point-node-id=133%3A3172&page-id=133%3A3091&embed-host=share"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="awa-text">
+        <div>
+          <h3>The Idea</h3>
+          <p class="prose">Awa is a personal inventory that tracks emotional experiences with digital products, not functional use. Many times we have products that are completely functional, and still we don't use them.</p>
+        </div>
+        <div>
+          <h3>The Origin</h3>
+          <div class="prose">
+            <p>Awa rises from Emotion-Driven Innovation (E-DI), the methodology introduced in my PhD research and published in <em>Emotion-Driven Innovation</em> (Springer, 2024).</p>
+            <p>It takes the knowledge developed through that research and applies it toward a different end: understanding the emotional landscape of digital products themselves, rather than designing a single product's experience.</p>
+          </div>
+        </div>
+        <div>
+          <h3>How it works</h3>
+          <p class="prose">Each time someone logs a check-in for an app or subscription, Awa builds a private, longitudinal record — not just the first impression, but whether that feeling has held steady or faded months later.</p>
+        </div>
+        <div>
+          <h3>Value for the User</h3>
+          <div class="prose">
+            <p>That record becomes evidence for two decisions people rarely have real data for:</p>
+            <ul class="dlist">
+              <li>Whether to start a new subscription, based on their own history with similar tools.</li>
+              <li>Whether to cancel one they already have, based on how it's actually made them feel over time — not a guess made in the moment.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  ============ END AWA hidden ============ -->
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="footer-meta">
+      <div class="footer-meta__col">
+        <span class="footer-meta__v">© 2026 Teresa Alaniz</span>
+      </div>
+      <div class="footer-meta__col">
+        <span class="footer-meta__k">Local time (Amsterdam)</span>
+        <span class="footer-meta__v" id="footerClock">—</span>
+      </div>
+      <div class="footer-meta__col">
+        <span class="footer-meta__k">Colophon</span>
+        <span class="footer-meta__v">Designed and built by me, with Claude</span>
+      </div>
+      <div class="footer-meta__col footer-meta__col--links">
+        <span class="footer-meta__k">Elsewhere</span>
+        <a href="https://books.apple.com/us/book/emotion-driven-innovation/id6478436705" target="_blank" rel="noopener">My book <span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="https://theemotionbrief.substack.com" target="_blank" rel="noopener">The Emotion Brief <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <p class="site-footer__sign">Good products are built together.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js?v=24"></script>
+</body>
+</html>
