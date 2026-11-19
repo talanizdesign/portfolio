@@ -1053,7 +1053,7 @@ em { font-style: italic; }
 
 /* ---------- App screen set: clean rounded cards in a row ---------- */
 .appset { margin-top: 1.75rem; }
-.appset__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.appset__row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem 1.25rem; }
 .appset__card { margin: 0; }
 .appset__shot {
   border: 1px solid var(--line);

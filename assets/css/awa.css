@@ -1771,3 +1771,4 @@ body[data-phase="system"] .awa-subnav--side { display: flex; }
   .awa-idea__hero, .awa-idea__name { grid-template-columns: 1fr; }
   .awa-idea__steps, .awa-idea__who, .awa-idea__brand-cols { grid-template-columns: 1fr; }
 }
+
