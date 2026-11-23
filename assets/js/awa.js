@@ -1447,3 +1447,38 @@ revealIn(document);
   setInterval(tick, 15000);
 })();
 
+/* ---- How it works, to try: the emotion picked under Log shapes the week card in See and the
+   insight in Decide (no app names, no advice to delete). ---- */
+(function awaHowItWorks() {
+  var root = document.querySelector('.awa-how');
+  if (!root) return;
+  var FEEL = { "joy": { "good": true, "name": "Joy", "one": "You feel a simple, easy happiness", "week": [ [ 2, 0 ], [ 1, 0 ], [ 2, 1 ], [ 0, 0 ], [ 1, 0 ], [ 3, 0 ], [ 2, 0 ] ], "call": "Keep it", "why": "Joy shows up in most of your logs. This app is doing you good." }, "relief": { "good": true, "name": "Relief", "one": "You feel like a weight has been lifted off you", "week": [ [ 1, 0 ], [ 0, 0 ], [ 1, 0 ], [ 2, 0 ], [ 1, 1 ], [ 2, 0 ], [ 3, 0 ] ], "call": "Keep it", "why": "Relief comes up again and again in your logs. It helps you unwind." }, "anxiety": { "good": false, "name": "Anxiety", "one": "You feel anxious and on edge", "week": [ [ 0, 1 ], [ 1, 1 ], [ 0, 2 ], [ 0, 1 ], [ 1, 2 ], [ 0, 3 ], [ 0, 2 ] ], "call": "Reflect on how you use it", "why": "Anxiety keeps coming up in your logs. It may help to think about how you use this app." }, "frustration": { "good": false, "name": "Frustration", "one": "You feel blocked, annoyed, and impatient", "week": [ [ 0, 2 ], [ 0, 1 ], [ 1, 1 ], [ 0, 2 ], [ 0, 0 ], [ 0, 2 ], [ 0, 3 ] ], "call": "Take a break", "why": "Frustration shows up in most of your logs. A short break could help you see how you feel without it." } };
+  var see = root.querySelector('.awa-how__see');
+  var get = function (k) { return root.querySelector('[data-how="' + k + '"]'); };
+  function meadow(week) {
+    return week.map(function (d) {
+      var n = d[0] + d[1], s = '', i;
+      if (!n) return '<span class="is-quiet"></span>';
+      for (i = 0; i < d[0]; i++) s += '<i class="is-g' + (i % 2 + 1) + '"></i>';
+      for (i = 0; i < d[1]; i++) s += '<i class="is-p' + (i % 2 + 1) + '"></i>';
+      return '<span style="--n:' + n + '">' + s + '</span>';
+    }).join('');
+  }
+  function show(key) {
+    var f = FEEL[key];
+    if (!f) return;
+    see.classList.toggle('is-good', f.good);
+    see.classList.toggle('is-bad', !f.good);
+    get('name').textContent = f.name;
+    get('one').textContent = f.one;
+    get('week').innerHTML = meadow(f.week);
+    get('call').textContent = f.call;
+    get('why').textContent = f.why;
+  }
+  root.querySelectorAll('.awa-how__pill').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      root.querySelectorAll('.awa-how__pill').forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      show(btn.getAttribute('data-feel'));
+    });
+  });
+})();

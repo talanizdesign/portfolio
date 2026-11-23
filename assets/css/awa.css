@@ -1651,6 +1651,92 @@ body[data-phase="system"] .awa-subnav--side { display: flex; }
 }
 .awa-idea__line span { color: #1F4080; }
 .awa-idea__compare { display: grid; gap: 0.75rem; }
+
+/* The same week, read two ways (Teresa 2026-11-23, option B): screen time bars above Awa's seeds,
+   Monday to Sunday. A 10-minute Monday and a long Sunday both felt not so good, so minutes don't
+   tell you how it felt. Grey for time; sage and peach only on feelings, as in the app. */
+.awa-week { margin: 0; border: 1px solid var(--line); border-radius: 24px; padding: clamp(1rem, 2.5vw, 1.35rem); background: #fff; }
+.awa-week__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.awa-week__grid {
+  display: grid;
+  grid-template-columns: 5.25rem repeat(7, minmax(0, 1fr));
+  grid-template-rows: auto auto auto auto;
+  align-items: end;
+  position: relative;
+}
+.awa-week__grid > * { position: relative; z-index: 1; }
+/* Every piece has a fixed place, so the highlight bands can sit behind Sunday and Monday */
+.awa-week__who--st { grid-area: 1 / 1; }
+.awa-week__cell--bar { grid-row: 1; grid-column: var(--c); }
+.awa-week__rule { grid-row: 2; grid-column: 1 / -1; }
+.awa-week__who--awa { grid-area: 3 / 1; }
+.awa-week__cell--seed { grid-row: 3; grid-column: var(--c); }
+.awa-week__days { grid-row: 4; grid-column: 2 / -1; }
+.awa-week__grid > .awa-week__hl { grid-row: 1 / 4; z-index: 0; background: #FFF1E8; border-radius: 12px; margin: -0.35rem 2px 0; align-self: stretch; }
+.awa-week__who { display: grid; gap: 0.1rem; padding-bottom: 0.1rem; font-size: 0.8rem; }
+.awa-week__who b { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.1; }
+.awa-week__who--st { color: var(--ink-3); font-weight: 400; }
+.awa-week__who--st b { font-weight: 600; }
+.awa-week__who--awa { color: #1F4080; font-weight: 600; }   /* Primary/900: just the name, in the brand navy */
+.awa-week__who--awa b { font-weight: 700; }
+.awa-week__cell { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 7.5rem; padding-top: 1.6rem; }
+.awa-week__bar { display: block; width: 58%; max-width: 26px; height: var(--h); min-height: 3px; background: #C9C9CD; border-radius: 6px; transform-origin: bottom; }
+.awa-week__cell.is-hot .awa-week__bar { background: #A3A3A8; }
+.awa-week__plant { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.awa-week__plant::after { content: ""; width: 1px; height: 22px; background: #C7D9C7; transform-origin: bottom; }
+.awa-week__plant i { width: 11px; height: 11px; border-radius: 50%; }
+.awa-week__plant .is-g { background: #72B172; }
+.awa-week__plant .is-g2 { background: #5B7D60; }
+.awa-week__plant .is-p { background: #E57E73; }
+.awa-week__plant .is-p2 { background: #FF9E7D; }
+.awa-week__tag {
+  margin-bottom: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink-3);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+.awa-week__tag--feel { color: #AD5047; border-color: #FFE4D6; }   /* Secondary/900, 5.5:1 on white */
+/* Monday and Sunday sit at the two ends: their labels line up with the card edge, never overlap */
+.awa-week__cell.is-last .awa-week__tag { align-self: flex-end; }
+.awa-week__hl--mon { grid-column: 2; }
+.awa-week__hl--sun { grid-column: 8; }
+.awa-week__rule { height: 1px; background: var(--line-soft); margin: 0.75rem 0; }
+.awa-week__days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); text-align: center; font-size: 0.78rem; color: var(--ink-3); padding-top: 0.45rem; }
+.awa-week__days .is-hot { color: #AD5047; font-weight: 700; }
+.awa-week__cap { margin-top: 1rem; font-size: 0.95rem; line-height: 1.5; color: var(--ink-2); }
+.awa-week__cap b { font-weight: 600; color: var(--ink-3); }
+.awa-week__cap b.is-feel { color: #1F4080; }   /* navy, like the blue half of the headline */
+
+/* Bars rise and seeds settle when the section appears (none with Reduce Motion). */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal .awa-week__bar, .js .reveal .awa-week__plant::after { transform: scaleY(0); transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s; }
+  .js .reveal .awa-week__plant i, .js .reveal .awa-week__tag { opacity: 0; transition: opacity 0.5s ease 0.6s; }
+  .js .reveal.is-in .awa-week__bar, .js .reveal.is-in .awa-week__plant::after { transform: none; }
+  .js .reveal.is-in .awa-week__plant i, .js .reveal.is-in .awa-week__tag { opacity: 1; }
+}
+
+/* Phone: the row names go above their row, so the seven days get the full width. */
+@media (max-width: 520px) {
+  .awa-week__grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .awa-week__who { grid-template-columns: auto auto; justify-content: start; align-items: baseline; gap: 0.5rem; }
+  .awa-week__who--st { grid-area: 1 / 1 / 2 / -1; }
+  .awa-week__cell--bar { grid-row: 2; grid-column: calc(var(--c) - 1); }
+  .awa-week__rule { grid-row: 3; }
+  .awa-week__who--awa { grid-area: 4 / 1 / 5 / -1; }
+  .awa-week__cell--seed { grid-row: 5; grid-column: calc(var(--c) - 1); }
+  .awa-week__days { grid-row: 6; grid-column: 1 / -1; }
+  .awa-week__grid > .awa-week__hl { grid-row: 2 / 6; }
+  .awa-week__hl--mon { grid-column: 1; }
+  .awa-week__hl--sun { grid-column: 7; }
+  .awa-week__cell { height: 6.5rem; }
+  .awa-week__cell.is-first .awa-week__tag { align-self: flex-start; }   /* Monday is at the left edge on a phone */
+}
 .awa-idea__card {
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -1680,6 +1766,49 @@ body[data-phase="system"] .awa-subnav--side { display: flex; }
 .awa-idea__steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
 .awa-idea__step { border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.15rem 1.2rem; }
 .awa-idea svg { width: 26px; height: 26px; fill: none; stroke: #1F4080; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+/* How it works, to try (Teresa 2026-11-23): pick an emotion under Log. See shows the app's own
+   week card for it (label, emotion, one-liner, a meadow of seven days), and Decide shows Awa's
+   insight. What people log shapes the trend, not the time of day. Awa never tells people to
+   delete an app: keep it, reflect on how you use it, or take a break. */
+.awa-how .awa-idea__step { display: flex; flex-direction: column; }
+.awa-idea p.awa-how__try { margin-top: 0.9rem; font-size: 0.8rem; font-weight: 600; color: var(--ink-3); }
+.awa-how__pills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem; margin-top: 0.5rem; }
+.awa-how__pill {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  min-height: 44px; padding: 0 0.75rem;
+  font-family: inherit; font-size: 0.85rem; font-weight: 600; line-height: 1.2;
+  border-radius: 999px; border: 1px solid; background: #fff; cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.awa-how__pill i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.awa-how__pill.is-good { color: #335438; border-color: #C7D9C7; }
+.awa-how__pill.is-good i { background: #72B172; }
+.awa-how__pill.is-bad { color: #AD5047; border-color: #FFE4D6; }
+.awa-how__pill.is-bad i { background: #E57E73; }
+.awa-how__pill.is-good[aria-pressed="true"] { background: #EDF5ED; border-color: #72B172; }
+.awa-how__pill.is-bad[aria-pressed="true"] { background: #FFF1E8; border-color: #E57E73; }
+.awa-how__pill:focus-visible { outline: 2px solid #1F4080; outline-offset: 2px; }
+.awa-how__see, .awa-how__dec { margin-top: 0.5rem; border-radius: 20px; padding: 1.1rem 1.15rem 0.9rem; transition: background-color 0.3s ease; }
+/* The app's week card: Tertiary/100 for a good week, Secondary/100 for a not so good one, text in the 900 */
+.awa-how__see.is-good { background: #EDF5ED; --how-ink: #335438; --how-stem: #C7D9C7; }
+.awa-how__see.is-bad { background: #FFF1E8; --how-ink: #AD5047; --how-stem: #FFE4D6; }
+.awa-idea p.awa-how__k { font-size: 0.72rem; font-weight: 600; color: var(--how-ink); }
+.awa-idea p.awa-how__name { font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; line-height: 1.1; color: var(--how-ink); margin-top: 0.2rem; }
+.awa-idea p.awa-how__one { font-size: 0.9rem; color: var(--how-ink); margin-top: 0.2rem; }
+/* The meadow: each day's stem grows with how much was logged; good seeds above not so good */
+.awa-how__week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); align-items: end; justify-items: center; height: 5.25rem; margin-top: 0.75rem; }
+.awa-how__week span { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.awa-how__week span::after { content: ""; width: 1px; height: calc(10px + var(--n, 0) * 5px); background: var(--how-stem); }
+.awa-how__week span.is-quiet { width: 4px; height: 4px; border-radius: 50%; background: var(--how-stem); }
+.awa-how__week span.is-quiet::after { display: none; }
+.awa-how__week i { width: 10px; height: 10px; border-radius: 50%; }
+.awa-how__week .is-g1 { background: #72B172; } .awa-how__week .is-g2 { background: #5B7D60; }
+.awa-how__week .is-p1 { background: #FF9E7D; } .awa-how__week .is-p2 { background: #E57E73; }
+.awa-how__days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); text-align: center; font-size: 0.72rem; font-weight: 600; color: var(--how-ink); margin-top: 0.35rem; }
+.awa-how__dec { background: #EDF5FF; padding-bottom: 1.1rem; }
+.awa-idea p.awa-how__call { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: #1F4080; }
+.awa-idea p.awa-how__why { margin-top: 0.25rem; color: #1F4080; font-size: 0.92rem; }
 
 /* 4. Who it's for */
 .awa-idea__who { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }

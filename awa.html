@@ -6,7 +6,7 @@
 <title>Awa — Teresa Alaniz</title>
 <meta name="description" content="Awa — a mobile app that asks how the apps you use make you feel. The story of building it, from idea to a working iOS app, by Teresa Alaniz." />
 <link rel="stylesheet" href="assets/css/style.css?v=100" />
-<link rel="stylesheet" href="assets/css/awa.css?v=72" />
+<link rel="stylesheet" href="assets/css/awa.css?v=78" />
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="awa-page">
@@ -59,20 +59,20 @@
       <!-- 1. The idea, in one line, with the difference drawn next to it -->
       <div class="awa-idea__hero reveal">
         <p class="awa-idea__line">Screen time counts minutes. <span>Awa asks how your apps make you feel.</span></p>
-        <div class="awa-idea__compare">
-          <div class="awa-idea__card awa-idea__card--st">
-            <span class="awa-idea__k">Screen time</span>
-            <span class="awa-idea__min">2h 14m</span>
+        <figure class="awa-week">
+          <p class="awa-week__sr">The same week, read two ways. Screen time: a daily average of 4 hours 36 minutes, 10 minutes on Monday and 9 hours 12 minutes on Sunday. Awa: Monday felt like frustration and Sunday like anxiety. The other days felt good.</p>
+          <div class="awa-week__grid" aria-hidden="true">
+            <span class="awa-week__hl awa-week__hl--sun"></span>
+            <span class="awa-week__hl awa-week__hl--mon"></span>
+            <span class="awa-week__who awa-week__who--st"><span>Screen time</span><b>4h 36m</b></span>
+            <span class="awa-week__cell awa-week__cell--bar is-hot is-first" style="--c:2"><span class="awa-week__tag">10m</span><span class="awa-week__bar" style="--h:4%"></span></span><span class="awa-week__cell awa-week__cell--bar" style="--c:3"><span class="awa-week__bar" style="--h:36%"></span></span><span class="awa-week__cell awa-week__cell--bar" style="--c:4"><span class="awa-week__bar" style="--h:41%"></span></span><span class="awa-week__cell awa-week__cell--bar" style="--c:5"><span class="awa-week__bar" style="--h:46%"></span></span><span class="awa-week__cell awa-week__cell--bar" style="--c:6"><span class="awa-week__bar" style="--h:28%"></span></span><span class="awa-week__cell awa-week__cell--bar" style="--c:7"><span class="awa-week__bar" style="--h:39%"></span></span><span class="awa-week__cell awa-week__cell--bar is-hot is-last" style="--c:8"><span class="awa-week__tag">9h 12m</span><span class="awa-week__bar" style="--h:100%"></span></span>
+            <span class="awa-week__rule"></span>
+            <span class="awa-week__who awa-week__who--awa"><b>Awa</b></span>
+            <span class="awa-week__cell awa-week__cell--seed is-first" style="--c:2"><span class="awa-week__tag awa-week__tag--feel">Frustration</span><span class="awa-week__plant"><i class="is-p"></i></span></span><span class="awa-week__cell awa-week__cell--seed" style="--c:3"><span class="awa-week__plant"><i class="is-g"></i><i class="is-g2"></i></span></span><span class="awa-week__cell awa-week__cell--seed" style="--c:4"><span class="awa-week__plant"><i class="is-g"></i></span></span><span class="awa-week__cell awa-week__cell--seed" style="--c:5"><span class="awa-week__plant"><i class="is-g"></i><i class="is-g2"></i><i class="is-g"></i></span></span><span class="awa-week__cell awa-week__cell--seed" style="--c:6"><span class="awa-week__plant"><i class="is-g2"></i></span></span><span class="awa-week__cell awa-week__cell--seed" style="--c:7"><span class="awa-week__plant"><i class="is-g2"></i><i class="is-g"></i></span></span><span class="awa-week__cell awa-week__cell--seed is-last" style="--c:8"><span class="awa-week__tag awa-week__tag--feel">Anxiety</span><span class="awa-week__plant"><i class="is-p"></i><i class="is-p2"></i><i class="is-p"></i></span></span>
+            <span class="awa-week__days"><span class="is-hot">M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span class="is-hot">S</span></span>
           </div>
-          <div class="awa-idea__card awa-idea__card--awa">
-            <span class="awa-idea__k">Awa</span>
-            <ul class="awa-idea__seeds" aria-label="Joy, good. Anxiety, not so good. Relief, good.">
-              <li><span class="awa-idea__seed" style="background:#5B7D60" aria-hidden="true"></span>Joy</li>
-              <li><span class="awa-idea__seed" style="background:#E57E73" aria-hidden="true"></span>Anxiety</li>
-              <li><span class="awa-idea__seed" style="background:#72B172" aria-hidden="true"></span>Relief</li>
-            </ul>
-          </div>
-        </div>
+          <figcaption class="awa-week__cap"><b>Ten minutes on Monday, nine hours on Sunday.</b> Screen time sees opposites. <b class="is-feel">Awa shows how you felt.</b></figcaption>
+        </figure>
       </div>
 
       <!-- 2. The name -->
@@ -84,21 +84,41 @@
       <!-- 3. How it works -->
       <div class="awa-idea__sec reveal">
         <h3 class="awa-sys-h">How it works</h3>
-        <ol class="awa-idea__steps">
+        <ol class="awa-idea__steps awa-how">
           <li class="awa-idea__step">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.5v7"/><path d="M8.5 12h7"/></svg>
             <span class="awa-idea__t">Log</span>
             <p>After using an app, pick up to three emotions.</p>
+            <p class="awa-how__try" id="awa-how-try">Try it: how did it feel?</p>
+            <div class="awa-how__pills" role="group" aria-labelledby="awa-how-try">
+              <button type="button" class="awa-how__pill is-good" data-feel="joy" aria-pressed="true"><i aria-hidden="true"></i>Joy</button>
+              <button type="button" class="awa-how__pill is-good" data-feel="relief" aria-pressed="false"><i aria-hidden="true"></i>Relief</button>
+              <button type="button" class="awa-how__pill is-bad" data-feel="anxiety" aria-pressed="false"><i aria-hidden="true"></i>Anxiety</button>
+              <button type="button" class="awa-how__pill is-bad" data-feel="frustration" aria-pressed="false"><i aria-hidden="true"></i>Frustration</button>
+            </div>
           </li>
           <li class="awa-idea__step">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="17" r="1.6"/><circle cx="10" cy="12" r="1.6"/><circle cx="14" cy="14.5" r="1.6"/><circle cx="18.5" cy="7" r="1.6"/><path d="M3.5 20.5h17"/></svg>
             <span class="awa-idea__t">See</span>
             <p>Week by week, patterns appear: which apps lift you up and which wear you down.</p>
+            <p class="awa-how__try" id="awa-how-see">Your weekly pattern</p>
+            <div class="awa-how__see is-good" aria-live="polite" aria-labelledby="awa-how-see">
+              <p class="awa-how__k">Your week, in one emotion</p>
+              <p class="awa-how__name" data-how="name">Joy</p>
+              <p class="awa-how__one" data-how="one">You feel a simple, easy happiness</p>
+              <div class="awa-how__week" aria-hidden="true" data-how="week"><span style="--n:2"><i class="is-g1"></i><i class="is-g2"></i></span><span style="--n:1"><i class="is-g1"></i></span><span style="--n:3"><i class="is-g1"></i><i class="is-g2"></i><i class="is-p1"></i></span><span class="is-quiet"></span><span style="--n:1"><i class="is-g1"></i></span><span style="--n:3"><i class="is-g1"></i><i class="is-g2"></i><i class="is-g1"></i></span><span style="--n:2"><i class="is-g1"></i><i class="is-g2"></i></span></div>
+              <div class="awa-how__days" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+            </div>
           </li>
           <li class="awa-idea__step">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14"/><path d="M5 12h14"/><path d="M5 17h14"/><circle cx="9" cy="7" r="1.8"/><circle cx="15" cy="12" r="1.8"/><circle cx="8" cy="17" r="1.8"/></svg>
             <span class="awa-idea__t">Decide</span>
-            <p>Keep an app, change how you use it, or let it go.</p>
+            <p>Keep an app, change how you use it, or let it go, based on how it makes you feel.</p>
+            <p class="awa-how__try" id="awa-how-dec">Awa's insight, based on your logs</p>
+            <div class="awa-how__dec" aria-live="polite" aria-labelledby="awa-how-dec">
+              <p class="awa-how__call" data-how="call">Keep it</p>
+              <p class="awa-how__why" data-how="why">Joy shows up in most of your logs. This app is doing you good.</p>
+            </div>
           </li>
         </ol>
       </div>
@@ -605,6 +625,6 @@
   </div>
 </footer>
 
-<script src="assets/js/awa.js?v=53"></script>
+<script src="assets/js/awa.js?v=55"></script>
 </body>
 </html>
