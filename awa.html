@@ -189,11 +189,11 @@
         </div>
         <div class="awa-cat-item">
           <button class="awa-cat" type="button" role="tab" data-cat="backend" aria-selected="false">Backend</button>
-          <span class="awa-cat__status">Next step</span>
+          <span class="awa-cat__status">In use today</span>
         </div>
         <div class="awa-cat-item">
           <button class="awa-cat" type="button" role="tab" data-cat="publishing" aria-selected="false">Publishing</button>
-          <span class="awa-cat__status">Next step</span>
+          <span class="awa-cat__status">In testing</span>
         </div>
         <div class="awa-cat-item">
           <button class="awa-cat" type="button" role="tab" data-cat="b2b" aria-selected="false">B2B</button>
@@ -234,14 +234,19 @@
       <div class="awa-cat-panel" id="cat-backend">
         <dl class="awa-tools">
           <div class="awa-tool"><dt>Supabase (EU region)</dt><dd>Accounts and logs, stored in the EU, with each person only able to see their own data.</dd></div>
+          <div class="awa-tool"><dt>Email accounts</dt><dd>Sign up, password resets and email changes are confirmed with a 6-digit code typed in the app. No links.</dd></div>
+          <div class="awa-tool"><dt>Works offline</dt><dd>Changes wait on the phone and are sent when there's internet again.</dd></div>
           <div class="awa-tool"><dt>Supabase views</dt><dd>Companies only ever see anonymous totals, from groups of at least 50 people.</dd></div>
+          <div class="awa-tool"><dt>Resend</dt><dd>Sends Awa's emails from getawa.app.</dd></div>
+          <div class="awa-tool"><dt>Cloudflare</dt><dd>The getawa.app domain, and hello@getawa.app for support.</dd></div>
         </dl>
       </div>
 
       <div class="awa-cat-panel" id="cat-publishing">
         <dl class="awa-tools">
-          <div class="awa-tool"><dt>Expo EAS</dt><dd>Builds the app in the cloud and sends it to the App Store.</dd></div>
-          <div class="awa-tool"><dt>Apple Developer + App Store Connect</dt><dd>TestFlight for testing, then App Store review and release.</dd></div>
+          <div class="awa-tool"><dt>Expo EAS</dt><dd>Builds the app in the cloud and sends each build to App Store Connect.</dd></div>
+          <div class="awa-tool"><dt>TestFlight</dt><dd>Awa is in testing now, before it opens to more testers.</dd></div>
+          <div class="awa-tool"><dt>App Store review</dt><dd>The next step, after testing.</dd></div>
         </dl>
       </div>
 
@@ -541,7 +546,7 @@
           <div class="awa-loop__left">
             <div class="awa-loop__intro">
               <h3 class="awa-app-h">How it's built</h3>
-              <p class="awa-app-note">Figma and a copy spreadsheet feed Claude Code, which writes the Expo / React Native app and tests it in the simulator. It runs on my iPhone — and navigating the real app feeds the next loop.</p>
+              <p class="awa-app-note">Figma and a copy spreadsheet feed Claude Code, which writes the Expo / React Native app and tests it in the simulator. It runs on my iPhone, and navigating the real app feeds the next loop.</p>
             </div>
             <div class="awa-loop__stack">
               <div class="awa-node awa-node--in" data-node="figma"><span class="awa-node__t">Figma</span><span class="awa-node__d">Screens, motion, tokens</span></div>
