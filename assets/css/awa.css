@@ -1731,14 +1731,14 @@ body[data-phase="system"] .awa-subnav--side { display: flex; }
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.5rem;
-  align-items: end;
+  align-items: start;             /* stems end on one line; two-line labels hang below */
   text-align: center;
   font-weight: 600;
   font-size: 0.95rem;
   line-height: 1.25;
   color: #1F4080;
 }
-.awa-idea__meadow li { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+.awa-idea__meadow li { display: flex; flex-direction: column; align-items: center; }
 .awa-idea__stem {
   display: flex;
   flex-direction: column;
