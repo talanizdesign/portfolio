@@ -342,7 +342,22 @@ em { font-style: italic; }
   color: var(--ink-3);
 }
 .stat--awa .arrow { font-size: 0.8em; color: var(--ink-faint); }
-.stat--awa:hover .stat__headline { color: var(--ink-3); }
+a.stat__headline { text-decoration: none; color: var(--ink); width: fit-content; }
+a.stat__headline:hover { color: var(--ink-3); }
+.stat__sub {
+  margin-top: 0.55rem;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.stat__sub:hover { color: var(--ink); }
+.stat__sub .arrow { font-size: 0.8em; color: var(--ink-faint); }
 /* A stat that links out (e.g. Design system → the project), same affordance as Awa but normal case */
 .stat--link { text-decoration: none; color: inherit; }
 .stat--link .stat__headline {

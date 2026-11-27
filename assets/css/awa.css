@@ -1928,3 +1928,26 @@ body[data-phase="system"] .awa-subnav--side { display: flex; }
   .awa-idea__steps, .awa-idea__who { grid-template-columns: 1fr; }
 }
 
+
+/* ---------- Phase 5: App Store — status + waiting list ---------- */
+.awa-store { max-width: 680px; }
+.awa-store__cta {
+  margin-top: 1.9rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+  border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem 1.7rem; background: var(--box);
+}
+.awa-store__ctah { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--ink); margin: 0 0 0.25rem; }
+.awa-store__ctad { font-size: 0.92rem; color: var(--ink-3); margin: 0; max-width: 42ch; line-height: 1.5; }
+.awa-store__btn {
+  flex: none; display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--ink); color: #fff; font-weight: 600; font-size: 0.95rem;
+  padding: 0.8rem 1.35rem; border-radius: 999px; text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+.awa-store__btn:hover { opacity: 0.9; }
+.awa-store__btn:active { transform: scale(0.98); }
+.awa-store__btn .arrow { font-size: 0.9em; }
+@media (max-width: 560px) {
+  .awa-store__cta { flex-direction: column; align-items: flex-start; }
+  .awa-store__btn { width: 100%; justify-content: center; }
+}
